@@ -1,1946 +1,2296 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jasim Uddin | WordPress Developer & Facebook Ads Specialist</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            font-family: 'Poppins', sans-serif;
-            color: #333;
-        }
-        .hero-gradient {
-            background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
-        }
-        .service-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        .project-card {
-            transition: transform 0.3s ease;
-        }
-        .project-card:hover {
-            transform: scale(1.03);
-        }
-        .cta-button {
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        .cta-button:after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%);
-            transition: all 0.6s ease;
-        }
-        .cta-button:hover:after {
-            left: 100%;
-        }
-        .progress-bar {
-            height: 8px;
-            border-radius: 4px;
-            background: #E5E7EB;
-            margin-top: 6px;
-            overflow: hidden;
-        }
-        .progress-fill {
-            height: 100%;
-            border-radius: 4px;
-            background: linear-gradient(90deg, #4F46E5 0%, #7C3AED 100%);
-            transition: width 1s ease-in-out;
-        }
-        .stats-card {
-            transition: transform 0.3s ease;
-        }
-        .stats-card:hover {
-            transform: translateY(-5px);
-        }
-        .nav-link {
-            position: relative;
-        }
-        .nav-link:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -2px;
-            left: 0;
-            background-color: #4F46E5;
-            transition: width 0.3s ease;
-        }
-        .nav-link:hover:after {
-            width: 100%;
-        }
-        .testimonial-card {
-            transition: transform 0.3s ease;
-        }
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-        }
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        .animatable .fade-in {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .process-step {
-            position: relative;
-        }
-        .process-step:not(:last-child):after {
-            content: '';
-            position: absolute;
-            top: 2.5rem;
-            bottom: 0;
-            left: 1.65rem;
-            width: 2px;
-            background: #E5E7EB;
-        }
-        
-        @media print {
-            .nav-container {
-                position: static !important;
-            }
-            section {
-                page-break-inside: avoid;
-                margin-bottom: 2rem;
-            }
-        }
-
-
-        /* Popup Styles */
-.popup {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  z-index: 999;
-  overflow-y: auto;
-}
-
-.popup-content {
-  position: relative;
-  background-color: #fff;
-  margin: 5% auto;
-  padding: 25px;
-  width: 80%;
-  max-width: 1000px;
-  border-radius: 10px;
-  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
-  animation: fadeIn 0.3s ease-out;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.close-btn {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  font-size: 28px;
-  font-weight: bold;
-  color: #666;
-  cursor: pointer;
-  transition: color 0.2s;
-}
-
-.close-btn:hover {
-  color: #5540FD;
-}
-
-/* Project Details Styles */
-.project-details-container {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
-.project-details-container h2 {
-  font-size: 32px;
-  color: #5540FD;
-  margin-bottom: 20px;
-}
-
-.project-image-slider {
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-.slider-container {
-  position: relative;
-  overflow: hidden;
-  border-radius: 8px;
-}
-
-.slides {
-  display: flex;
-  transition: transform 0.5s ease;
-}
-
-.slide {
-  min-width: 100%;
-  height: 400px;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.slider-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(85, 64, 253, 0.8);
-  color: white;
-  border: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  font-size: 18px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.slider-btn:hover {
-  background-color: #5540FD;
-}
-
-.prev {
-  left: 15px;
-}
-
-.next {
-  right: 15px;
-}
-
-.project-details {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
-.project-info {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  background-color: #f8f9fa;
-  padding: 20px;
-  border-radius: 8px;
-}
-
-.info-item h4 {
-  color: #5540FD;
-  margin-bottom: 5px;
-  font-size: 16px;
-}
-
-.info-item p {
-  margin: 0;
-  color: #333;
-}
-
-.info-item a {
-  color: #5540FD;
-  text-decoration: none;
-}
-
-.info-item a:hover {
-  text-decoration: underline;
-}
-
-.project-description h3,
-.project-technologies h3 {
-  color: #5540FD;
-  margin-bottom: 15px;
-  font-size: 22px;
-}
-
-.project-description p {
-  line-height: 1.6;
-  color: #333;
-}
-
-.project-technologies ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 0;
-  list-style: none;
-}
-
-.project-technologies li {
-  background-color: #f0f2ff;
-  color: #5540FD;
-  padding: 5px 15px;
-  border-radius: 20px;
-  font-size: 14px;
-}
-
-.cta-button {
-  background-color: #5540FD;
-  color: white;
-  border: none;
-  padding: 15px 30px;
-  font-size: 16px;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  margin-top: 20px;
-  align-self: center;
-  font-weight: 600;
-}
-
-.cta-button:hover {
-  background-color: #4330e0;
-}
-
-/* Contact Form Styles */
-.form-group {
-  margin-bottom: 20px;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: 500;
-  color: #333;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-  width: 100%;
-  padding: 12px 15px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 16px;
-  transition: border-color 0.3s;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  border-color: #5540FD;
-  outline: none;
-}
-
-.form-group textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-
-.success-message {
-  text-align: center;
-  padding: 30px 0;
-}
-
-.success-message h3 {
-  color: #5540FD;
-  font-size: 24px;
-  margin-bottom: 15px;
-}
-
-.success-message p {
-  color: #333;
-  font-size: 16px;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  .popup-content {
-    width: 90%;
-    margin: 10% auto;
-    padding: 20px;
-  }
-  
-  .slide {
-    height: 250px;
-  }
-  
-  .project-info {
-    grid-template-columns: 1fr;
-  }
-}
-
-    </style>
-</head>
-<body class="bg-gray-50">
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="bg-gray-50">
     <!-- Navigation -->
-    <nav class="nav-container bg-white shadow-md fixed w-full z-10 transition-all duration-300" id="navbar">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <h1 class="text-xl font-bold text-indigo-700">Jasim Uddin</h1>
-                </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="nav-link text-gray-700 hover:text-indigo-700 font-medium">Home</a>
-                    <a href="#about" class="nav-link text-gray-700 hover:text-indigo-700 font-medium">About</a>
-                    <a href="#services" class="nav-link text-gray-700 hover:text-indigo-700 font-medium">Services</a>
-                    <a href="#projects" class="nav-link text-gray-700 hover:text-indigo-700 font-medium">Projects</a>
-                    <a href="#testimonials" class="nav-link text-gray-700 hover:text-indigo-700 font-medium">Testimonials</a>
-                    <a href="#contact" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition">Contact Me</a>
-                </div>
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-button" class="text-gray-700">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
+    <nav
+      class="nav-container bg-white shadow-md fixed w-full z-10 transition-all duration-300"
+      id="navbar"
+    >
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+          <div class="flex items-center">
+            <h1 class="text-xl font-bold text-indigo-700">Jasim Uddin</h1>
+          </div>
+          <div class="hidden md:flex items-center space-x-8">
+            <a
+              href="#home"
+              class="nav-link text-gray-700 hover:text-indigo-700 font-medium"
+              >Home</a
+            >
+            <a
+              href="#about"
+              class="nav-link text-gray-700 hover:text-indigo-700 font-medium"
+              >About</a
+            >
+            <a
+              href="#services"
+              class="nav-link text-gray-700 hover:text-indigo-700 font-medium"
+              >Services</a
+            >
+            <a
+              href="#projects"
+              class="nav-link text-gray-700 hover:text-indigo-700 font-medium"
+              >Projects</a
+            >
+            <a
+              href="#testimonials"
+              class="nav-link text-gray-700 hover:text-indigo-700 font-medium"
+              >Testimonials</a
+            >
+            <a
+              href="#contact"
+              class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition"
+              >Contact Me</a
+            >
+          </div>
+          <div class="md:hidden flex items-center">
+            <button id="mobile-menu-button" class="text-gray-700">
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16m-7 6h7"
+                ></path>
+              </svg>
+            </button>
+          </div>
         </div>
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-700 hover:bg-gray-50">Home</a>
-                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-700 hover:bg-gray-50">About</a>
-                <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-700 hover:bg-gray-50">Services</a>
-                <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-700 hover:bg-gray-50">Projects</a>
-                <a href="#testimonials" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-700 hover:bg-gray-50">Testimonials</a>
-                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-700 hover:bg-gray-50">Contact</a>
-            </div>
+      </div>
+      <!-- Mobile menu -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-white border-t border-gray-200"
+      >
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <a
+            href="#home"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-700 hover:bg-gray-50"
+            >Home</a
+          >
+          <a
+            href="#about"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-700 hover:bg-gray-50"
+            >About</a
+          >
+          <a
+            href="#services"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-700 hover:bg-gray-50"
+            >Services</a
+          >
+          <a
+            href="#projects"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-700 hover:bg-gray-50"
+            >Projects</a
+          >
+          <a
+            href="#testimonials"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-700 hover:bg-gray-50"
+            >Testimonials</a
+          >
+          <a
+            href="#contact"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-700 hover:bg-gray-50"
+            >Contact</a
+          >
         </div>
+      </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-gradient min-h-screen flex items-center pt-16">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row items-center justify-between">
-                <div class="md:w-1/2 text-white mb-12 md:mb-0">
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">WordPress Developer & Facebook Ads Specialist</h1>
-                    <p class="text-xl mb-8 text-indigo-100">I build stunning websites that convert visitors into customers and create high-performing Facebook ad campaigns that drive real business results.</p>
-                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                        <a href="#contact" class="cta-button bg-white text-indigo-700 px-8 py-3 rounded-md font-semibold text-lg hover:bg-gray-100 shadow-lg">Hire Me</a>
-                        <a href="#services" class="border-2 border-white text-white px-8 py-3 rounded-md font-semibold text-lg hover:bg-white hover:bg-opacity-10 transition">View Services</a>
-                    </div>
-                </div>
-                <div class="md:w-1/2 flex justify-center">
-                    <div class="bg-white p-6 rounded-lg shadow-2xl transform rotate-3 transition duration-500 hover:rotate-0">
-                        <div class="h-64 w-64 md:h-80 md:w-80 rounded-md overflow-hidden">
-                            <div class="h-full w-full bg-indigo-200 flex items-center justify-center">
-                                <svg class="h-40 w-40 text-indigo-500" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <section
+      id="home"
+      class="hero-gradient min-h-screen flex items-center pt-16"
+    >
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row items-center justify-between">
+          <div class="md:w-1/2 text-white mb-12 md:mb-0">
+            <h1
+              class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
+            >
+              WordPress Developer & Facebook Ads Specialist
+            </h1>
+            <p class="text-xl mb-8 text-indigo-100">
+              I build stunning websites that convert visitors into customers and
+              create high-performing Facebook ad campaigns that drive real
+              business results.
+            </p>
+            <div
+              class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4"
+            >
+              <a
+                href="#contact"
+                class="cta-button bg-white text-indigo-700 px-8 py-3 rounded-md font-semibold text-lg hover:bg-gray-100 shadow-lg"
+                >Hire Me</a
+              >
+              <a
+                href="#services"
+                class="border-2 border-white text-white px-8 py-3 rounded-md font-semibold text-lg hover:bg-white hover:bg-opacity-10 transition"
+                >View Services</a
+              >
             </div>
+          </div>
+          <div class="md:w-1/2 flex justify-center">
+            <div
+              class="bg-white p-6 rounded-lg shadow-2xl transform rotate-3 transition duration-500 hover:rotate-0"
+            >
+              <div class="h-64 w-64 md:h-80 md:w-80 rounded-md overflow-hidden">
+                <div
+                  class="h-full w-full bg-indigo-200 flex items-center justify-center"
+                >
+                  <svg
+                    class="h-40 w-40 text-indigo-500"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Stats Section -->
     <section class="py-16 bg-white">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="stats-card bg-gradient-to-br from-indigo-50 to-indigo-100 p-6 rounded-xl shadow text-center">
-                    <div class="text-indigo-600 text-4xl font-bold mb-2">100+</div>
-                    <div class="text-gray-700 font-medium">Websites Developed</div>
-                </div>
-                <div class="stats-card bg-gradient-to-br from-indigo-50 to-indigo-100 p-6 rounded-xl shadow text-center">
-                    <div class="text-indigo-600 text-4xl font-bold mb-2">85%</div>
-                    <div class="text-gray-700 font-medium">Average Conversion Rate Increase</div>
-                </div>
-                <div class="stats-card bg-gradient-to-br from-indigo-50 to-indigo-100 p-6 rounded-xl shadow text-center">
-                    <div class="text-indigo-600 text-4xl font-bold mb-2">50+</div>
-                    <div class="text-gray-700 font-medium">Successful Ad Campaigns</div>
-                </div>
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div
+            class="stats-card bg-gradient-to-br from-indigo-50 to-indigo-100 p-6 rounded-xl shadow text-center"
+          >
+            <div class="text-indigo-600 text-4xl font-bold mb-2">100+</div>
+            <div class="text-gray-700 font-medium">Websites Developed</div>
+          </div>
+          <div
+            class="stats-card bg-gradient-to-br from-indigo-50 to-indigo-100 p-6 rounded-xl shadow text-center"
+          >
+            <div class="text-indigo-600 text-4xl font-bold mb-2">85%</div>
+            <div class="text-gray-700 font-medium">
+              Average Conversion Rate Increase
             </div>
+          </div>
+          <div
+            class="stats-card bg-gradient-to-br from-indigo-50 to-indigo-100 p-6 rounded-xl shadow text-center"
+          >
+            <div class="text-indigo-600 text-4xl font-bold mb-2">50+</div>
+            <div class="text-gray-700 font-medium">Successful Ad Campaigns</div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">About Me</h2>
-                <div class="w-24 h-1 bg-indigo-600 mx-auto"></div>
-            </div>
-            <div class="flex flex-col lg:flex-row items-center">
-                <div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-10">
-                    <div class="bg-white p-6 rounded-lg shadow-xl">
-                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Jasim Uddin</h3>
-                        <p class="text-gray-600 mb-6 leading-relaxed">
-                            I'm a passionate WordPress Web Developer and Facebook Ads Specialist with extensive experience building high-converting websites and successful marketing campaigns.
-                        </p>
-                        <p class="text-gray-600 mb-6 leading-relaxed">
-                            I specialize in creating custom WordPress solutions, working with any theme or plugin, and building websites from scratch. My development approach focuses on responsive design, performance optimization, and user experience to ensure your website not only looks great but also converts visitors into customers.
-                        </p>
-                        <p class="text-gray-600 leading-relaxed">
-                            In the Facebook advertising space, I create advanced ad campaigns, analyze audience data, optimize ads for maximum ROI, and build high-quality funnels that drive sales. My strategic approach to Facebook advertising has helped businesses achieve significant growth in their digital marketing efforts.
-                        </p>
-                    </div>
-                </div>
-                <div class="lg:w-1/2">
-                    <div class="grid grid-cols-1 gap-6">
-                        <div class="bg-white p-6 rounded-lg shadow">
-                            <h4 class="text-lg font-semibold text-gray-800 mb-4">Professional Skills</h4>
-                            <div class="space-y-4">
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-gray-700 font-medium">WordPress Development</span>
-                                        <span class="text-indigo-600 font-medium">95%</span>
-                                    </div>
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style="width: 95%"></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-gray-700 font-medium">Elementor</span>
-                                        <span class="text-indigo-600 font-medium">90%</span>
-                                    </div>
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style="width: 90%"></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-gray-700 font-medium">Theme/Plugin Customization</span>
-                                        <span class="text-indigo-600 font-medium">92%</span>
-                                    </div>
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style="width: 92%"></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-gray-700 font-medium">Facebook Ads</span>
-                                        <span class="text-indigo-600 font-medium">88%</span>
-                                    </div>
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style="width: 88%"></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-gray-700 font-medium">Audience Targeting</span>
-                                        <span class="text-indigo-600 font-medium">85%</span>
-                                    </div>
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style="width: 85%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bg-white p-6 rounded-lg shadow">
-                            <h4 class="text-lg font-semibold text-gray-800 mb-4">Contact Information</h4>
-                            <div class="space-y-3">
-                                <div class="flex items-center">
-                                    <i class="fas fa-envelope text-indigo-600 mr-3"></i>
-                                    <span class="text-gray-700">business.jasim@gmail.com</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <i class="fas fa-phone text-indigo-600 mr-3"></i>
-                                    <span class="text-gray-700">+8801609899713</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-gray-800 mb-4">About Me</h2>
+          <div class="w-24 h-1 bg-indigo-600 mx-auto"></div>
         </div>
+        <div class="flex flex-col lg:flex-row items-center">
+          <div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-10">
+            <div class="bg-white p-6 rounded-lg shadow-xl">
+              <h3 class="text-2xl font-semibold text-gray-800 mb-4">
+                Jasim Uddin
+              </h3>
+              <p class="text-gray-600 mb-6 leading-relaxed">
+                I'm a passionate WordPress Web Developer and Facebook Ads
+                Specialist with extensive experience building high-converting
+                websites and successful marketing campaigns.
+              </p>
+              <p class="text-gray-600 mb-6 leading-relaxed">
+                I specialize in creating custom WordPress solutions, working
+                with any theme or plugin, and building websites from scratch. My
+                development approach focuses on responsive design, performance
+                optimization, and user experience to ensure your website not
+                only looks great but also converts visitors into customers.
+              </p>
+              <p class="text-gray-600 leading-relaxed">
+                In the Facebook advertising space, I create advanced ad
+                campaigns, analyze audience data, optimize ads for maximum ROI,
+                and build high-quality funnels that drive sales. My strategic
+                approach to Facebook advertising has helped businesses achieve
+                significant growth in their digital marketing efforts.
+              </p>
+            </div>
+          </div>
+          <div class="lg:w-1/2">
+            <div class="grid grid-cols-1 gap-6">
+              <div class="bg-white p-6 rounded-lg shadow">
+                <h4 class="text-lg font-semibold text-gray-800 mb-4">
+                  Professional Skills
+                </h4>
+                <div class="space-y-4">
+                  <div>
+                    <div class="flex justify-between mb-1">
+                      <span class="text-gray-700 font-medium"
+                        >WordPress Development</span
+                      >
+                      <span class="text-indigo-600 font-medium">95%</span>
+                    </div>
+                    <div class="progress-bar">
+                      <div class="progress-fill" style="width: 95%"></div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="flex justify-between mb-1">
+                      <span class="text-gray-700 font-medium">Elementor</span>
+                      <span class="text-indigo-600 font-medium">90%</span>
+                    </div>
+                    <div class="progress-bar">
+                      <div class="progress-fill" style="width: 90%"></div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="flex justify-between mb-1">
+                      <span class="text-gray-700 font-medium"
+                        >Theme/Plugin Customization</span
+                      >
+                      <span class="text-indigo-600 font-medium">92%</span>
+                    </div>
+                    <div class="progress-bar">
+                      <div class="progress-fill" style="width: 92%"></div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="flex justify-between mb-1">
+                      <span class="text-gray-700 font-medium"
+                        >Facebook Ads</span
+                      >
+                      <span class="text-indigo-600 font-medium">88%</span>
+                    </div>
+                    <div class="progress-bar">
+                      <div class="progress-fill" style="width: 88%"></div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="flex justify-between mb-1">
+                      <span class="text-gray-700 font-medium"
+                        >Audience Targeting</span
+                      >
+                      <span class="text-indigo-600 font-medium">85%</span>
+                    </div>
+                    <div class="progress-bar">
+                      <div class="progress-fill" style="width: 85%"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-white p-6 rounded-lg shadow">
+                <h4 class="text-lg font-semibold text-gray-800 mb-4">
+                  Contact Information
+                </h4>
+                <div class="space-y-3">
+                  <div class="flex items-center">
+                    <i class="fas fa-envelope text-indigo-600 mr-3"></i>
+                    <span class="text-gray-700">business.jasim@gmail.com</span>
+                  </div>
+                  <div class="flex items-center">
+                    <i class="fas fa-phone text-indigo-600 mr-3"></i>
+                    <span class="text-gray-700">+8801609899713</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Services Section -->
     <section id="services" class="py-20 bg-white">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">My Services</h2>
-                <div class="w-24 h-1 bg-indigo-600 mx-auto mb-8"></div>
-                <p class="text-gray-600 max-w-3xl mx-auto">I offer comprehensive web development and digital marketing services to help your business grow online.</p>
-            </div>
-
-            <!-- WordPress Services -->
-            <div id="wordpress-services" class="mb-20">
-                <h3 class="text-2xl font-bold text-center text-gray-800 mb-12">WordPress Development Services</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- WordPress Projects -->
-                
-                
-                <!-- Facebook Ads Projects -->
-               
-                
-               
-                    <div class="service-card bg-white rounded-lg shadow-lg overflow-hidden">
-                        <div class="p-6">
-                            <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6">
-                                <i class="fas fa-laptop-code text-2xl text-indigo-600"></i>
-                            </div>
-                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Custom WordPress Development</h4>
-                            <p class="text-gray-600 mb-4">I build custom WordPress websites from scratch that are tailored to your specific business needs and goals.</p>
-                            <ul class="text-gray-600 space-y-2">
-                                <li class="flex items-start">
-                                    <svg class="h-5 w-5 text-indigo-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Responsive design for all devices
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="h-5 w-5 text-indigo-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    SEO-friendly structure
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="h-5 w-5 text-indigo-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Fast-loading pages
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="service-card bg-white rounded-lg shadow-lg overflow-hidden">
-                        <div class="p-6">
-                            <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6">
-                                <i class="fas fa-paint-brush text-2xl text-indigo-600"></i>
-                            </div>
-                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Elementor Expert</h4>
-                            <p class="text-gray-600 mb-4">As an Elementor specialist, I create beautiful, interactive page designs that engage your visitors and drive conversions.</p>
-                            <ul class="text-gray-600 space-y-2">
-                                <li class="flex items-start">
-                                    <svg class="h-5 w-5 text-indigo-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Custom Elementor widgets
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="h-5 w-5 text-indigo-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Advanced animations
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="h-5 w-5 text-indigo-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Conversion-optimized layouts
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="service-card bg-white rounded-lg shadow-lg overflow-hidden">
-                        <div class="p-6">
-                            <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6">
-                                <i class="fas fa-cogs text-2xl text-indigo-600"></i>
-                            </div>
-                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Theme & Plugin Customization</h4>
-                            <p class="text-gray-600 mb-4">I customize themes and plugins to match your brand identity and meet your specific functionality requirements.</p>
-                            <ul class="text-gray-600 space-y-2">
-                                <li class="flex items-start">
-                                    <svg class="h-5 w-5 text-indigo-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Custom theme modifications
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="h-5 w-5 text-indigo-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Plugin development
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="h-5 w-5 text-indigo-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Advanced functionality integration
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="service-card bg-white rounded-lg shadow-lg overflow-hidden">
-                        <div class="p-6">
-                            <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6">
-                                <i class="fas fa-shield-alt text-2xl text-indigo-600"></i>
-                            </div>
-                            <h4 class="text-xl font-semibold text-gray-800 mb-3">WordPress Security & Maintenance</h4>
-                            <p class="text-gray-600 mb-4">Keep your WordPress website secure, up-to-date, and performing optimally with my maintenance services.</p>
-                            <ul class="text-gray-600 space-y-2">
-                                <li class="flex items-start">
-                                    <svg class="h-5 w-5 text-indigo-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Security hardening
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="h-5 w-5 text-indigo-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Regular updates
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="h-5 w-5 text-indigo-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Backup management
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="service-card bg-white rounded-lg shadow-lg overflow-hidden">
-                        <div class="p-6">
-                            <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6">
-                                <i class="fas fa-bug text-2xl text-indigo-600"></i>
-                            </div>
-                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Bug Fixing & Troubleshooting</h4>
-                            <p class="text-gray-600 mb-4">I diagnose and fix WordPress issues quickly to ensure your website functions flawlessly at all times.</p>
-                            <ul class="text-gray-600 space-y-2">
-                                <li class="flex items-start">
-                                    <svg class="h-5 w-5 text-indigo-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Error resolution
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="h-5 w-5 text-indigo-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Plugin conflicts
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="h-5 w-5 text-indigo-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Performance optimization
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="service-card bg-white rounded-lg shadow-lg overflow-hidden">
-                        <div class="p-6">
-                            <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6">
-                                <i class="fas fa-tachometer-alt text-2xl text-indigo-600"></i>
-                            </div>
-                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Speed Optimization</h4>
-                            <p class="text-gray-600 mb-4">I optimize your WordPress website for maximum speed and performance, improving user experience and SEO rankings.</p>
-                            <ul class="text-gray-600 space-y-2">
-                                <li class="flex items-start">
-                                    <svg class="h-5 w-5 text-indigo-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Image optimization
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="h-5 w-5 text-indigo-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Caching implementation
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="h-5 w-5 text-indigo-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Code optimization
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Facebook Ads Services -->
-            <div id="facebook-ads-services">
-                <h3 class="text-2xl font-bold text-center text-gray-800 mb-12">Facebook Ads Services</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- WordPress Projects -->
-               
-                
-                <!-- Facebook Ads Projects -->
-                
-                
-                
-                    <div class="service-card bg-white rounded-lg shadow-lg overflow-hidden">
-                        <div class="p-6">
-                            <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6">
-                                <i class="fab fa-facebook-f text-2xl text-indigo-600"></i>
-                            </div>
-                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Advanced Facebook Ad Creation</h4>
-                            <p class="text-gray-600 mb-4">I design high-performing Facebook ad campaigns that capture attention and drive engagement with your target audience.</p>
-                            <ul class="text-gray-600 space-y-2">
-                                <li class="flex items-start">
-                                    <svg class="h-5 w-5 text-indigo-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Eye-catching visuals
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="h-5 w-5 text-indigo-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Compelling ad copy
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="h-5 w-5 text-indigo-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Strategic CTA placement
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="service-card bg-white rounded-lg shadow-lg overflow-hidden">
-                        <div class="p-6">
-                            <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6">
-                                <i class="fas fa-users text-2xl text-indigo-600"></i>
-                            </div>
-                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Audience Analysis & Targeting</h4>
-                            <p class="text-gray-600 mb-4">I identify and target the most valuable audience segments to maximize your ad spend efficiency and return on investment.</p>
-                            <ul class="text-gray-600 space-y-2">
-                                <li class="flex items-start">
-                                    <svg class="h-5 w-5 text-indigo-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Customer persona development
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="h-5 w-5 text-indigo-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Custom audience creation
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="h-5 w-5 text-indigo-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Lookalike audience optimization
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="service-card bg-white rounded-lg shadow-lg overflow-hidden">
-                        <div class="p-6">
-                            <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6">
-                                <i class="fas fa-chart-line text-2xl text-indigo-600"></i>
-                            </div>
-                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Ad Campaign Optimization</h4>
-                            <p class="text-gray-600 mb-4">I continuously monitor and optimize your Facebook ad campaigns to improve performance and reduce cost per acquisition.</p>
-                            <ul class="text-gray-600 space-y-2">
-                                <li class="flex items-start">
-                                    <svg class="h-5 w-5 text-indigo-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    A/B testing
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="h-5 w-5 text-indigo-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Budget allocation
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="h-5 w-5 text-indigo-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Performance analysis
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="service-card bg-white rounded-lg shadow-lg overflow-hidden">
-                        <div class="p-6">
-                            <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6">
-                                <i class="fas fa-funnel-dollar text-2xl text-indigo-600"></i>
-                            </div>
-                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Sales Funnel Creation</h4>
-                            <p class="text-gray-600 mb-4">I develop strategic sales funnels that convert Facebook traffic into leads and customers through a systematic approach.</p>
-                            <ul class="text-gray-600 space-y-2">
-                                <li class="flex items-start">
-                                    <svg class="h-5 w-5 text-indigo-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Lead magnet creation
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="h-5 w-5 text-indigo-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Landing page optimization
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="h-5 w-5 text-indigo-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Email sequence development
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="service-card bg-white rounded-lg shadow-lg overflow-hidden">
-                        <div class="p-6">
-                            <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6">
-                                <i class="fas fa-comments-dollar text-2xl text-indigo-600"></i>
-                            </div>
-                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Retargeting Campaigns</h4>
-                            <p class="text-gray-600 mb-4">I set up effective retargeting campaigns to re-engage visitors who showed interest but didn't convert, boosting your ROI.</p>
-                            <ul class="text-gray-600 space-y-2">
-                                <li class="flex items-start">
-                                    <svg class="h-5 w-5 text-indigo-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Pixel implementation
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="h-5 w-5 text-indigo-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Segmented audience creation
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="h-5 w-5 text-indigo-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Sequential ad delivery
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="service-card bg-white rounded-lg shadow-lg overflow-hidden">
-                        <div class="p-6">
-                            <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6">
-                                <i class="fas fa-file-invoice text-2xl text-indigo-600"></i>
-                            </div>
-                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Performance Reporting</h4>
-                            <p class="text-gray-600 mb-4">I provide clear, comprehensive reports on your Facebook ad performance, with actionable insights for continuous improvement.</p>
-                            <ul class="text-gray-600 space-y-2">
-                                <li class="flex items-start">
-                                    <svg class="h-5 w-5 text-indigo-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    KPI tracking
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="h-5 w-5 text-indigo-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    ROI analysis
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="h-5 w-5 text-indigo-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Strategic recommendations
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-gray-800 mb-4">My Services</h2>
+          <div class="w-24 h-1 bg-indigo-600 mx-auto mb-8"></div>
+          <p class="text-gray-600 max-w-3xl mx-auto">
+            I offer comprehensive web development and digital marketing services
+            to help your business grow online.
+          </p>
         </div>
+
+        <!-- WordPress Services -->
+        <div id="wordpress-services" class="mb-20">
+          <h3 class="text-2xl font-bold text-center text-gray-800 mb-12">
+            WordPress Development Services
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div
+              class="service-card bg-white rounded-lg shadow-lg overflow-hidden"
+            >
+              <div class="p-6">
+                <div
+                  class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6"
+                >
+                  <i class="fas fa-laptop-code text-2xl text-indigo-600"></i>
+                </div>
+                <h4 class="text-xl font-semibold text-gray-800 mb-3">
+                  Custom WordPress Development
+                </h4>
+                <p class="text-gray-600 mb-4">
+                  I build custom WordPress websites from scratch that are
+                  tailored to your specific business needs and goals.
+                </p>
+                <ul class="text-gray-600 space-y-2">
+                  <li class="flex items-start">
+                    <svg
+                      class="h-5 w-5 text-indigo-500 mr-2 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
+                    </svg>
+                    Responsive design for all devices
+                  </li>
+                  <li class="flex items-start">
+                    <svg
+                      class="h-5 w-5 text-indigo-500 mr-2 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
+                    </svg>
+                    SEO-friendly structure
+                  </li>
+                  <li class="flex items-start">
+                    <svg
+                      class="h-5 w-5 text-indigo-500 mr-2 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
+                    </svg>
+                    Fast-loading pages
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div
+              class="service-card bg-white rounded-lg shadow-lg overflow-hidden"
+            >
+              <div class="p-6">
+                <div
+                  class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6"
+                >
+                  <i class="fas fa-paint-brush text-2xl text-indigo-600"></i>
+                </div>
+                <h4 class="text-xl font-semibold text-gray-800 mb-3">
+                  Elementor Expert
+                </h4>
+                <p class="text-gray-600 mb-4">
+                  As an Elementor specialist, I create beautiful, interactive
+                  page designs that engage your visitors and drive conversions.
+                </p>
+                <ul class="text-gray-600 space-y-2">
+                  <li class="flex items-start">
+                    <svg
+                      class="h-5 w-5 text-indigo-500 mr-2 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
+                    </svg>
+                    Custom Elementor widgets
+                  </li>
+                  <li class="flex items-start">
+                    <svg
+                      class="h-5 w-5 text-indigo-500 mr-2 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
+                    </svg>
+                    Advanced animations
+                  </li>
+                  <li class="flex items-start">
+                    <svg
+                      class="h-5 w-5 text-indigo-500 mr-2 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
+                    </svg>
+                    Conversion-optimized layouts
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div
+              class="service-card bg-white rounded-lg shadow-lg overflow-hidden"
+            >
+              <div class="p-6">
+                <div
+                  class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6"
+                >
+                  <i class="fas fa-cogs text-2xl text-indigo-600"></i>
+                </div>
+                <h4 class="text-xl font-semibold text-gray-800 mb-3">
+                  Theme & Plugin Customization
+                </h4>
+                <p class="text-gray-600 mb-4">
+                  I customize themes and plugins to match your brand identity
+                  and meet your specific functionality requirements.
+                </p>
+                <ul class="text-gray-600 space-y-2">
+                  <li class="flex items-start">
+                    <svg
+                      class="h-5 w-5 text-indigo-500 mr-2 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
+                    </svg>
+                    Custom theme modifications
+                  </li>
+                  <li class="flex items-start">
+                    <svg
+                      class="h-5 w-5 text-indigo-500 mr-2 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
+                    </svg>
+                    Plugin development
+                  </li>
+                  <li class="flex items-start">
+                    <svg
+                      class="h-5 w-5 text-indigo-500 mr-2 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
+                    </svg>
+                    Advanced functionality integration
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div
+              class="service-card bg-white rounded-lg shadow-lg overflow-hidden"
+            >
+              <div class="p-6">
+                <div
+                  class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6"
+                >
+                  <i class="fas fa-shield-alt text-2xl text-indigo-600"></i>
+                </div>
+                <h4 class="text-xl font-semibold text-gray-800 mb-3">
+                  WordPress Security & Maintenance
+                </h4>
+                <p class="text-gray-600 mb-4">
+                  Keep your WordPress website secure, up-to-date, and performing
+                  optimally with my maintenance services.
+                </p>
+                <ul class="text-gray-600 space-y-2">
+                  <li class="flex items-start">
+                    <svg
+                      class="h-5 w-5 text-indigo-500 mr-2 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
+                    </svg>
+                    Security hardening
+                  </li>
+                  <li class="flex items-start">
+                    <svg
+                      class="h-5 w-5 text-indigo-500 mr-2 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
+                    </svg>
+                    Regular updates
+                  </li>
+                  <li class="flex items-start">
+                    <svg
+                      class="h-5 w-5 text-indigo-500 mr-2 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
+                    </svg>
+                    Backup management
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div
+              class="service-card bg-white rounded-lg shadow-lg overflow-hidden"
+            >
+              <div class="p-6">
+                <div
+                  class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6"
+                >
+                  <i class="fas fa-bug text-2xl text-indigo-600"></i>
+                </div>
+                <h4 class="text-xl font-semibold text-gray-800 mb-3">
+                  Bug Fixing & Troubleshooting
+                </h4>
+                <p class="text-gray-600 mb-4">
+                  I diagnose and fix WordPress issues quickly to ensure your
+                  website functions flawlessly at all times.
+                </p>
+                <ul class="text-gray-600 space-y-2">
+                  <li class="flex items-start">
+                    <svg
+                      class="h-5 w-5 text-indigo-500 mr-2 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
+                    </svg>
+                    Error resolution
+                  </li>
+                  <li class="flex items-start">
+                    <svg
+                      class="h-5 w-5 text-indigo-500 mr-2 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
+                    </svg>
+                    Plugin conflicts
+                  </li>
+                  <li class="flex items-start">
+                    <svg
+                      class="h-5 w-5 text-indigo-500 mr-2 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
+                    </svg>
+                    Performance optimization
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div
+              class="service-card bg-white rounded-lg shadow-lg overflow-hidden"
+            >
+              <div class="p-6">
+                <div
+                  class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6"
+                >
+                  <i class="fas fa-tachometer-alt text-2xl text-indigo-600"></i>
+                </div>
+                <h4 class="text-xl font-semibold text-gray-800 mb-3">
+                  Speed Optimization
+                </h4>
+                <p class="text-gray-600 mb-4">
+                  I optimize your WordPress website for maximum speed and
+                  performance, improving user experience and SEO rankings.
+                </p>
+                <ul class="text-gray-600 space-y-2">
+                  <li class="flex items-start">
+                    <svg
+                      class="h-5 w-5 text-indigo-500 mr-2 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
+                    </svg>
+                    Image optimization
+                  </li>
+                  <li class="flex items-start">
+                    <svg
+                      class="h-5 w-5 text-indigo-500 mr-2 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
+                    </svg>
+                    Caching implementation
+                  </li>
+                  <li class="flex items-start">
+                    <svg
+                      class="h-5 w-5 text-indigo-500 mr-2 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
+                    </svg>
+                    Code optimization
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Facebook Ads Services -->
+        <div id="facebook-ads-services">
+          <h3 class="text-2xl font-bold text-center text-gray-800 mb-12">
+            Facebook Ads Services
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- WordPress Projects -->
+
+            <!-- Facebook Ads Projects -->
+
+            <div
+              class="service-card bg-white rounded-lg shadow-lg overflow-hidden"
+            >
+              <div class="p-6">
+                <div
+                  class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6"
+                >
+                  <i class="fab fa-facebook-f text-2xl text-indigo-600"></i>
+                </div>
+                <h4 class="text-xl font-semibold text-gray-800 mb-3">
+                  Advanced Facebook Ad Creation
+                </h4>
+                <p class="text-gray-600 mb-4">
+                  I design high-performing Facebook ad campaigns that capture
+                  attention and drive engagement with your target audience.
+                </p>
+                <ul class="text-gray-600 space-y-2">
+                  <li class="flex items-start">
+                    <svg
+                      class="h-5 w-5 text-indigo-500 mr-2 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
+                    </svg>
+                    Eye-catching visuals
+                  </li>
+                  <li class="flex items-start">
+                    <svg
+                      class="h-5 w-5 text-indigo-500 mr-2 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
+                    </svg>
+                    Compelling ad copy
+                  </li>
+                  <li class="flex items-start">
+                    <svg
+                      class="h-5 w-5 text-indigo-500 mr-2 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
+                    </svg>
+                    Strategic CTA placement
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div
+              class="service-card bg-white rounded-lg shadow-lg overflow-hidden"
+            >
+              <div class="p-6">
+                <div
+                  class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6"
+                >
+                  <i class="fas fa-users text-2xl text-indigo-600"></i>
+                </div>
+                <h4 class="text-xl font-semibold text-gray-800 mb-3">
+                  Audience Analysis & Targeting
+                </h4>
+                <p class="text-gray-600 mb-4">
+                  I identify and target the most valuable audience segments to
+                  maximize your ad spend efficiency and return on investment.
+                </p>
+                <ul class="text-gray-600 space-y-2">
+                  <li class="flex items-start">
+                    <svg
+                      class="h-5 w-5 text-indigo-500 mr-2 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
+                    </svg>
+                    Customer persona development
+                  </li>
+                  <li class="flex items-start">
+                    <svg
+                      class="h-5 w-5 text-indigo-500 mr-2 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
+                    </svg>
+                    Custom audience creation
+                  </li>
+                  <li class="flex items-start">
+                    <svg
+                      class="h-5 w-5 text-indigo-500 mr-2 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
+                    </svg>
+                    Lookalike audience optimization
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div
+              class="service-card bg-white rounded-lg shadow-lg overflow-hidden"
+            >
+              <div class="p-6">
+                <div
+                  class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6"
+                >
+                  <i class="fas fa-chart-line text-2xl text-indigo-600"></i>
+                </div>
+                <h4 class="text-xl font-semibold text-gray-800 mb-3">
+                  Ad Campaign Optimization
+                </h4>
+                <p class="text-gray-600 mb-4">
+                  I continuously monitor and optimize your Facebook ad campaigns
+                  to improve performance and reduce cost per acquisition.
+                </p>
+                <ul class="text-gray-600 space-y-2">
+                  <li class="flex items-start">
+                    <svg
+                      class="h-5 w-5 text-indigo-500 mr-2 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
+                    </svg>
+                    A/B testing
+                  </li>
+                  <li class="flex items-start">
+                    <svg
+                      class="h-5 w-5 text-indigo-500 mr-2 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
+                    </svg>
+                    Budget allocation
+                  </li>
+                  <li class="flex items-start">
+                    <svg
+                      class="h-5 w-5 text-indigo-500 mr-2 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
+                    </svg>
+                    Performance analysis
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div
+              class="service-card bg-white rounded-lg shadow-lg overflow-hidden"
+            >
+              <div class="p-6">
+                <div
+                  class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6"
+                >
+                  <i class="fas fa-funnel-dollar text-2xl text-indigo-600"></i>
+                </div>
+                <h4 class="text-xl font-semibold text-gray-800 mb-3">
+                  Sales Funnel Creation
+                </h4>
+                <p class="text-gray-600 mb-4">
+                  I develop strategic sales funnels that convert Facebook
+                  traffic into leads and customers through a systematic
+                  approach.
+                </p>
+                <ul class="text-gray-600 space-y-2">
+                  <li class="flex items-start">
+                    <svg
+                      class="h-5 w-5 text-indigo-500 mr-2 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
+                    </svg>
+                    Lead magnet creation
+                  </li>
+                  <li class="flex items-start">
+                    <svg
+                      class="h-5 w-5 text-indigo-500 mr-2 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
+                    </svg>
+                    Landing page optimization
+                  </li>
+                  <li class="flex items-start">
+                    <svg
+                      class="h-5 w-5 text-indigo-500 mr-2 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
+                    </svg>
+                    Email sequence development
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div
+              class="service-card bg-white rounded-lg shadow-lg overflow-hidden"
+            >
+              <div class="p-6">
+                <div
+                  class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6"
+                >
+                  <i
+                    class="fas fa-comments-dollar text-2xl text-indigo-600"
+                  ></i>
+                </div>
+                <h4 class="text-xl font-semibold text-gray-800 mb-3">
+                  Retargeting Campaigns
+                </h4>
+                <p class="text-gray-600 mb-4">
+                  I set up effective retargeting campaigns to re-engage visitors
+                  who showed interest but didn't convert, boosting your ROI.
+                </p>
+                <ul class="text-gray-600 space-y-2">
+                  <li class="flex items-start">
+                    <svg
+                      class="h-5 w-5 text-indigo-500 mr-2 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
+                    </svg>
+                    Pixel implementation
+                  </li>
+                  <li class="flex items-start">
+                    <svg
+                      class="h-5 w-5 text-indigo-500 mr-2 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
+                    </svg>
+                    Segmented audience creation
+                  </li>
+                  <li class="flex items-start">
+                    <svg
+                      class="h-5 w-5 text-indigo-500 mr-2 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
+                    </svg>
+                    Sequential ad delivery
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div
+              class="service-card bg-white rounded-lg shadow-lg overflow-hidden"
+            >
+              <div class="p-6">
+                <div
+                  class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6"
+                >
+                  <i class="fas fa-file-invoice text-2xl text-indigo-600"></i>
+                </div>
+                <h4 class="text-xl font-semibold text-gray-800 mb-3">
+                  Performance Reporting
+                </h4>
+                <p class="text-gray-600 mb-4">
+                  I provide clear, comprehensive reports on your Facebook ad
+                  performance, with actionable insights for continuous
+                  improvement.
+                </p>
+                <ul class="text-gray-600 space-y-2">
+                  <li class="flex items-start">
+                    <svg
+                      class="h-5 w-5 text-indigo-500 mr-2 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
+                    </svg>
+                    KPI tracking
+                  </li>
+                  <li class="flex items-start">
+                    <svg
+                      class="h-5 w-5 text-indigo-500 mr-2 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
+                    </svg>
+                    ROI analysis
+                  </li>
+                  <li class="flex items-start">
+                    <svg
+                      class="h-5 w-5 text-indigo-500 mr-2 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
+                    </svg>
+                    Strategic recommendations
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Work Process Section -->
     <section class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">My Work Process</h2>
-                <div class="w-24 h-1 bg-indigo-600 mx-auto mb-8"></div>
-                <p class="text-gray-600 max-w-3xl mx-auto">I follow a systematic approach to ensure every project is completed successfully and meets your business objectives.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- WordPress Process -->
-                <div class="bg-white p-8 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center">WordPress Development Process</h3>
-                    <div class="space-y-8">
-                        <div class="process-step flex items-start">
-                            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mr-4">
-                                <span class="text-indigo-700 font-bold">1</span>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-semibold text-gray-800 mb-2">Discovery & Planning</h4>
-                                <p class="text-gray-600">I thoroughly understand your business, goals, and target audience to create a strategic plan for your website.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="process-step flex items-start">
-                            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mr-4">
-                                <span class="text-indigo-700 font-bold">2</span>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-semibold text-gray-800 mb-2">Design & Wireframing</h4>
-                                <p class="text-gray-600">I create wireframes and design mockups to visualize the website structure and appearance before development begins.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="process-step flex items-start">
-                            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mr-4">
-                                <span class="text-indigo-700 font-bold">3</span>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-semibold text-gray-800 mb-2">Development</h4>
-                                <p class="text-gray-600">I build your website with clean, optimized code, implementing all planned features and functionality.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="process-step flex items-start">
-                            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mr-4">
-                                <span class="text-indigo-700 font-bold">4</span>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-semibold text-gray-800 mb-2">Testing & Optimization</h4>
-                                <p class="text-gray-600">I thoroughly test your website across devices and browsers, and optimize it for speed, security, and SEO.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="process-step flex items-start">
-                            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mr-4">
-                                <span class="text-indigo-700 font-bold">5</span>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-semibold text-gray-800 mb-2">Launch & Support</h4>
-                                <p class="text-gray-600">After launching your website, I provide ongoing support and maintenance to ensure it continues to perform optimally.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Facebook Ads Process -->
-                <div class="bg-white p-8 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Facebook Ads Process</h3>
-                    <div class="space-y-8">
-                        <div class="process-step flex items-start">
-                            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mr-4">
-                                <span class="text-indigo-700 font-bold">1</span>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-semibold text-gray-800 mb-2">Audience Research</h4>
-                                <p class="text-gray-600">I identify your ideal customers and develop detailed audience personas to target with your campaigns.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="process-step flex items-start">
-                            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mr-4">
-                                <span class="text-indigo-700 font-bold">2</span>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-semibold text-gray-800 mb-2">Campaign Strategy</h4>
-                                <p class="text-gray-600">I develop a comprehensive campaign strategy aligned with your business objectives and budget constraints.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="process-step flex items-start">
-                            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mr-4">
-                                <span class="text-indigo-700 font-bold">3</span>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-semibold text-gray-800 mb-2">Ad Creation</h4>
-                                <p class="text-gray-600">I design compelling ad creatives and write persuasive copy that resonates with your target audience.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="process-step flex items-start">
-                            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mr-4">
-                                <span class="text-indigo-700 font-bold">4</span>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-semibold text-gray-800 mb-2">Launch & Testing</h4>
-                                <p class="text-gray-600">I launch your campaigns and conduct extensive A/B testing to identify the most effective ad variations.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="process-step flex items-start">
-                            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mr-4">
-                                <span class="text-indigo-700 font-bold">5</span>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-semibold text-gray-800 mb-2">Optimization & Scaling</h4>
-                                <p class="text-gray-600">I continuously monitor and optimize your campaigns, scaling successful ads and refining targeting for maximum ROI.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-gray-800 mb-4">My Work Process</h2>
+          <div class="w-24 h-1 bg-indigo-600 mx-auto mb-8"></div>
+          <p class="text-gray-600 max-w-3xl mx-auto">
+            I follow a systematic approach to ensure every project is completed
+            successfully and meets your business objectives.
+          </p>
         </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- WordPress Process -->
+          <div class="bg-white p-8 rounded-lg shadow-lg">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center">
+              WordPress Development Process
+            </h3>
+            <div class="space-y-8">
+              <div class="process-step flex items-start">
+                <div
+                  class="flex-shrink-0 w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mr-4"
+                >
+                  <span class="text-indigo-700 font-bold">1</span>
+                </div>
+                <div>
+                  <h4 class="text-lg font-semibold text-gray-800 mb-2">
+                    Discovery & Planning
+                  </h4>
+                  <p class="text-gray-600">
+                    I thoroughly understand your business, goals, and target
+                    audience to create a strategic plan for your website.
+                  </p>
+                </div>
+              </div>
+
+              <div class="process-step flex items-start">
+                <div
+                  class="flex-shrink-0 w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mr-4"
+                >
+                  <span class="text-indigo-700 font-bold">2</span>
+                </div>
+                <div>
+                  <h4 class="text-lg font-semibold text-gray-800 mb-2">
+                    Design & Wireframing
+                  </h4>
+                  <p class="text-gray-600">
+                    I create wireframes and design mockups to visualize the
+                    website structure and appearance before development begins.
+                  </p>
+                </div>
+              </div>
+
+              <div class="process-step flex items-start">
+                <div
+                  class="flex-shrink-0 w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mr-4"
+                >
+                  <span class="text-indigo-700 font-bold">3</span>
+                </div>
+                <div>
+                  <h4 class="text-lg font-semibold text-gray-800 mb-2">
+                    Development
+                  </h4>
+                  <p class="text-gray-600">
+                    I build your website with clean, optimized code,
+                    implementing all planned features and functionality.
+                  </p>
+                </div>
+              </div>
+
+              <div class="process-step flex items-start">
+                <div
+                  class="flex-shrink-0 w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mr-4"
+                >
+                  <span class="text-indigo-700 font-bold">4</span>
+                </div>
+                <div>
+                  <h4 class="text-lg font-semibold text-gray-800 mb-2">
+                    Testing & Optimization
+                  </h4>
+                  <p class="text-gray-600">
+                    I thoroughly test your website across devices and browsers,
+                    and optimize it for speed, security, and SEO.
+                  </p>
+                </div>
+              </div>
+
+              <div class="process-step flex items-start">
+                <div
+                  class="flex-shrink-0 w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mr-4"
+                >
+                  <span class="text-indigo-700 font-bold">5</span>
+                </div>
+                <div>
+                  <h4 class="text-lg font-semibold text-gray-800 mb-2">
+                    Launch & Support
+                  </h4>
+                  <p class="text-gray-600">
+                    After launching your website, I provide ongoing support and
+                    maintenance to ensure it continues to perform optimally.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Facebook Ads Process -->
+          <div class="bg-white p-8 rounded-lg shadow-lg">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center">
+              Facebook Ads Process
+            </h3>
+            <div class="space-y-8">
+              <div class="process-step flex items-start">
+                <div
+                  class="flex-shrink-0 w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mr-4"
+                >
+                  <span class="text-indigo-700 font-bold">1</span>
+                </div>
+                <div>
+                  <h4 class="text-lg font-semibold text-gray-800 mb-2">
+                    Audience Research
+                  </h4>
+                  <p class="text-gray-600">
+                    I identify your ideal customers and develop detailed
+                    audience personas to target with your campaigns.
+                  </p>
+                </div>
+              </div>
+
+              <div class="process-step flex items-start">
+                <div
+                  class="flex-shrink-0 w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mr-4"
+                >
+                  <span class="text-indigo-700 font-bold">2</span>
+                </div>
+                <div>
+                  <h4 class="text-lg font-semibold text-gray-800 mb-2">
+                    Campaign Strategy
+                  </h4>
+                  <p class="text-gray-600">
+                    I develop a comprehensive campaign strategy aligned with
+                    your business objectives and budget constraints.
+                  </p>
+                </div>
+              </div>
+
+              <div class="process-step flex items-start">
+                <div
+                  class="flex-shrink-0 w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mr-4"
+                >
+                  <span class="text-indigo-700 font-bold">3</span>
+                </div>
+                <div>
+                  <h4 class="text-lg font-semibold text-gray-800 mb-2">
+                    Ad Creation
+                  </h4>
+                  <p class="text-gray-600">
+                    I design compelling ad creatives and write persuasive copy
+                    that resonates with your target audience.
+                  </p>
+                </div>
+              </div>
+
+              <div class="process-step flex items-start">
+                <div
+                  class="flex-shrink-0 w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mr-4"
+                >
+                  <span class="text-indigo-700 font-bold">4</span>
+                </div>
+                <div>
+                  <h4 class="text-lg font-semibold text-gray-800 mb-2">
+                    Launch & Testing
+                  </h4>
+                  <p class="text-gray-600">
+                    I launch your campaigns and conduct extensive A/B testing to
+                    identify the most effective ad variations.
+                  </p>
+                </div>
+              </div>
+
+              <div class="process-step flex items-start">
+                <div
+                  class="flex-shrink-0 w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mr-4"
+                >
+                  <span class="text-indigo-700 font-bold">5</span>
+                </div>
+                <div>
+                  <h4 class="text-lg font-semibold text-gray-800 mb-2">
+                    Optimization & Scaling
+                  </h4>
+                  <p class="text-gray-600">
+                    I continuously monitor and optimize your campaigns, scaling
+                    successful ads and refining targeting for maximum ROI.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Projects Section -->
     <section id="projects" class="py-20 bg-white">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">Featured Projects</h2>
-                <div class="w-24 h-1 bg-indigo-600 mx-auto mb-8"></div>
-                <p class="text-gray-600 max-w-3xl mx-auto">Here are some of my recent projects that showcase my skills in WordPress development and Facebook advertising.</p>
-            </div>
-            
-            <!-- Project Filters -->
-            <div class="flex flex-wrap justify-center mb-12">
-                <button class="project-filter px-6 py-2 m-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition" data-filter="all">All Projects</button>
-                <button class="project-filter px-6 py-2 m-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition" data-filter="wordpress">WordPress</button>
-                <button class="project-filter px-6 py-2 m-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition" data-filter="facebook">Facebook Ads</button>
-            </div>
-            
-            <!-- Projects Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- WordPress Projects -->
-                
-                
-                <!-- Facebook Ads Projects -->
-               
-                
-               
-                <!-- WordPress Project 1 -->
-                <div class="project-card project-item bg-white rounded-lg shadow-lg overflow-hidden" data-category="wordpress" data-project-id="1">
-                    <div class="relative h-64 bg-gray-200">
-                        <div class="absolute inset-0 flex items-center justify-center bg-indigo-100">
-                            <i class="fas fa-laptop text-4xl text-indigo-500"></i>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h4 class="text-xl font-semibold text-gray-800 mb-2">E-Commerce Website Redesign</h4>
-                        <p class="text-gray-600 mb-4">Redesigned an e-commerce website using WordPress and WooCommerce, resulting in a 45% increase in conversions.</p>
-                        <div class="flex flex-wrap mb-4">
-                            <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm mr-2 mb-2">WordPress</span>
-                            <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm mr-2 mb-2">WooCommerce</span>
-                            <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm mr-2 mb-2">Elementor</span>
-                        </div>
-                        <a href="#" class="view-project-btn inline-block text-indigo-600 font-medium hover:text-indigo-700 transition" data-project-id="1">View Project <i class="fas fa-arrow-right ml-1"></i></a>
-                    </div>
-                </div>
-                
-                <!-- WordPress Project 2 -->
-                <div class="project-card project-item bg-white rounded-lg shadow-lg overflow-hidden" data-category="wordpress" data-project-id="1">
-                    <div class="relative h-64 bg-gray-200">
-                        <div class="absolute inset-0 flex items-center justify-center bg-indigo-100">
-                            <i class="fas fa-laptop-code text-4xl text-indigo-500"></i>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Corporate Website Development</h4>
-                        <p class="text-gray-600 mb-4">Developed a custom WordPress website for a corporate client, focusing on clean design and user experience.</p>
-                        <div class="flex flex-wrap mb-4">
-                            <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm mr-2 mb-2">WordPress</span>
-                            <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm mr-2 mb-2">Custom Theme</span>
-                            <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm mr-2 mb-2">JavaScript</span>
-                        </div>
-                        <a href="#" class="view-project-btn inline-block text-indigo-600 font-medium hover:text-indigo-700 transition" data-project-id="1">View Project <i class="fas fa-arrow-right ml-1"></i></a>
-                    </div>
-                </div>
-                
-                <!-- WordPress Project 3 -->
-                <div class="project-card project-item bg-white rounded-lg shadow-lg overflow-hidden" data-category="wordpress" data-project-id="1">
-                    <div class="relative h-64 bg-gray-200">
-                        <div class="absolute inset-0 flex items-center justify-center bg-indigo-100">
-                            <i class="fas fa-mobile-alt text-4xl text-indigo-500"></i>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Mobile-First Restaurant Website</h4>
-                        <p class="text-gray-600 mb-4">Created a mobile-first WordPress website for a restaurant with online ordering capabilities and reservation system.</p>
-                        <div class="flex flex-wrap mb-4">
-                            <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm mr-2 mb-2">WordPress</span>
-                            <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm mr-2 mb-2">Responsive Design</span>
-                            <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm mr-2 mb-2">WP Plugins</span>
-                        </div>
-                        <a href="#" class="view-project-btn inline-block text-indigo-600 font-medium hover:text-indigo-700 transition" data-project-id="1">View Project <i class="fas fa-arrow-right ml-1"></i></a>
-                    </div>
-                </div>
-                
-                <!-- Facebook Ads Project 1 -->
-                <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden" data-category="facebook">
-                    <div class="relative h-64 bg-gray-200">
-                        <div class="absolute inset-0 flex items-center justify-center bg-indigo-100">
-                            <i class="fab fa-facebook text-4xl text-indigo-500"></i>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h4 class="text-xl font-semibold text-gray-800 mb-2">E-commerce Sales Campaign</h4>
-                        <p class="text-gray-600 mb-4">Designed and managed a Facebook Ads campaign for an e-commerce store that generated a 350% ROI and increased sales by 75%.</p>
-                        <div class="flex flex-wrap mb-4">
-                            <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm mr-2 mb-2">Facebook Ads</span>
-                            <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm mr-2 mb-2">E-commerce</span>
-                            <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm mr-2 mb-2">Retargeting</span>
-                        </div>
-                        <a href="#" class="inline-block text-indigo-600 font-medium hover:text-indigo-700 transition">View Case Study <i class="fas fa-arrow-right ml-1"></i></a>
-                    </div>
-                </div>
-                
-                <!-- Facebook Ads Project 2 -->
-                <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden" data-category="facebook">
-                    <div class="relative h-64 bg-gray-200">
-                        <div class="absolute inset-0 flex items-center justify-center bg-indigo-100">
-                            <i class="fas fa-bullseye text-4xl text-indigo-500"></i>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Lead Generation Campaign</h4>
-                        <p class="text-gray-600 mb-4">Created a Facebook lead generation campaign for a SaaS company that decreased cost per lead by 40% while maintaining lead quality.</p>
-                        <div class="flex flex-wrap mb-4">
-                            <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm mr-2 mb-2">Facebook Ads</span>
-                            <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm mr-2 mb-2">Lead Generation</span>
-                            <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm mr-2 mb-2">Conversion Tracking</span>
-                        </div>
-                        <a href="#" class="inline-block text-indigo-600 font-medium hover:text-indigo-700 transition">View Case Study <i class="fas fa-arrow-right ml-1"></i></a>
-                    </div>
-                </div>
-                
-                <!-- Facebook Ads Project 3 -->
-                <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden" data-category="facebook">
-                    <div class="relative h-64 bg-gray-200">
-                        <div class="absolute inset-0 flex items-center justify-center bg-indigo-100">
-                            <i class="fas fa-store text-4xl text-indigo-500"></i>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Local Business Campaign</h4>
-                        <p class="text-gray-600 mb-4">Managed a location-based Facebook ad campaign for a retail store that increased foot traffic by 60% and boosted in-store sales.</p>
-                        <div class="flex flex-wrap mb-4">
-                            <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm mr-2 mb-2">Facebook Ads</span>
-                            <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm mr-2 mb-2">Local Business</span>
-                            <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm mr-2 mb-2">Geotargeting</span>
-                        </div>
-                        <a href="#" class="inline-block text-indigo-600 font-medium hover:text-indigo-700 transition">View Case Study <i class="fas fa-arrow-right ml-1"></i></a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- View More Button -->
-            <div class="text-center mt-12">
-                <a href="#" class="inline-block bg-indigo-600 text-white px-8 py-3 rounded-md font-semibold hover:bg-indigo-700 transition shadow-md">View All Projects</a>
-            </div>
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-gray-800 mb-4">
+            Featured Projects
+          </h2>
+          <div class="w-24 h-1 bg-indigo-600 mx-auto mb-8"></div>
+          <p class="text-gray-600 max-w-3xl mx-auto">
+            Here are some of my recent projects that showcase my skills in
+            WordPress development and Facebook advertising.
+          </p>
         </div>
+
+        <!-- Project Filters -->
+        <div class="flex flex-wrap justify-center mb-12">
+          <button
+            class="project-filter px-6 py-2 m-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition"
+            data-filter="all"
+          >
+            All Projects
+          </button>
+          <button
+            class="project-filter px-6 py-2 m-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition"
+            data-filter="wordpress"
+          >
+            WordPress
+          </button>
+          <button
+            class="project-filter px-6 py-2 m-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition"
+            data-filter="facebook"
+          >
+            Facebook Ads
+          </button>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- WordPress Projects -->
+
+          <!-- Facebook Ads Projects -->
+
+          <!-- WordPress Project 1 -->
+          <div
+            class="project-card project-item bg-white rounded-lg shadow-lg overflow-hidden"
+            data-category="wordpress"
+            data-project-id="1"
+          >
+            <div class="relative h-64 bg-gray-200">
+              <div
+                class="absolute inset-0 flex items-center justify-center bg-indigo-100"
+              >
+                <i class="fas fa-laptop text-4xl text-indigo-500"></i>
+              </div>
+            </div>
+            <div class="p-6">
+              <h4 class="text-xl font-semibold text-gray-800 mb-2">
+                E-Commerce Website Redesign
+              </h4>
+              <p class="text-gray-600 mb-4">
+                Redesigned an e-commerce website using WordPress and
+                WooCommerce, resulting in a 45% increase in conversions.
+              </p>
+              <div class="flex flex-wrap mb-4">
+                <span
+                  class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm mr-2 mb-2"
+                  >WordPress</span
+                >
+                <span
+                  class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm mr-2 mb-2"
+                  >WooCommerce</span
+                >
+                <span
+                  class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm mr-2 mb-2"
+                  >Elementor</span
+                >
+              </div>
+              <a
+                href="#"
+                class="view-project-btn inline-block text-indigo-600 font-medium hover:text-indigo-700 transition"
+                data-project-id="1"
+                >View Project <i class="fas fa-arrow-right ml-1"></i
+              ></a>
+            </div>
+          </div>
+
+          <!-- WordPress Project 2 -->
+          <div
+            class="project-card project-item bg-white rounded-lg shadow-lg overflow-hidden"
+            data-category="wordpress"
+            data-project-id="2"
+          >
+            <div class="relative h-64 bg-gray-200">
+              <div
+                class="absolute inset-0 flex items-center justify-center bg-indigo-100"
+              >
+                <i class="fas fa-laptop-code text-4xl text-indigo-500"></i>
+              </div>
+            </div>
+            <div class="p-6">
+              <h4 class="text-xl font-semibold text-gray-800 mb-2">
+                Corporate Website Development
+              </h4>
+              <p class="text-gray-600 mb-4">
+                Developed a custom WordPress website for a corporate client,
+                focusing on clean design and user experience.
+              </p>
+              <div class="flex flex-wrap mb-4">
+                <span
+                  class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm mr-2 mb-2"
+                  >WordPress</span
+                >
+                <span
+                  class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm mr-2 mb-2"
+                  >Custom Theme</span
+                >
+                <span
+                  class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm mr-2 mb-2"
+                  >JavaScript</span
+                >
+              </div>
+              <a
+                href="#"
+                class="view-project-btn inline-block text-indigo-600 font-medium hover:text-indigo-700 transition"
+                data-project-id="2"
+                >View Project <i class="fas fa-arrow-right ml-1"></i
+              ></a>
+            </div>
+          </div>
+
+          <!-- WordPress Project 3 -->
+          <div
+            class="project-card project-item bg-white rounded-lg shadow-lg overflow-hidden"
+            data-category="wordpress"
+            data-project-id="3"
+          >
+            <div class="relative h-64 bg-gray-200">
+              <div
+                class="absolute inset-0 flex items-center justify-center bg-indigo-100"
+              >
+                <i class="fas fa-mobile-alt text-4xl text-indigo-500"></i>
+              </div>
+            </div>
+            <div class="p-6">
+              <h4 class="text-xl font-semibold text-gray-800 mb-2">
+                Mobile-First Restaurant Website
+              </h4>
+              <p class="text-gray-600 mb-4">
+                Created a mobile-first WordPress website for a restaurant with
+                online ordering capabilities and reservation system.
+              </p>
+              <div class="flex flex-wrap mb-4">
+                <span
+                  class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm mr-2 mb-2"
+                  >WordPress</span
+                >
+                <span
+                  class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm mr-2 mb-2"
+                  >Responsive Design</span
+                >
+                <span
+                  class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm mr-2 mb-2"
+                  >WP Plugins</span
+                >
+              </div>
+              <a
+                href="#"
+                class="view-project-btn inline-block text-indigo-600 font-medium hover:text-indigo-700 transition"
+                data-project-id="3"
+                >View Project <i class="fas fa-arrow-right ml-1"></i
+              ></a>
+            </div>
+          </div>
+
+          <!-- Facebook Ads Project 1 -->
+          <div
+            class="project-card project-item bg-white rounded-lg shadow-lg overflow-hidden"
+            data-category="facebook"
+            data-project-id="4"
+          >
+            <div class="relative h-64 bg-gray-200">
+              <div
+                class="absolute inset-0 flex items-center justify-center bg-indigo-100"
+              >
+                <i class="fab fa-facebook text-4xl text-indigo-500"></i>
+              </div>
+            </div>
+            <div class="p-6">
+              <h4 class="text-xl font-semibold text-gray-800 mb-2">
+                E-commerce Sales Campaign
+              </h4>
+              <p class="text-gray-600 mb-4">
+                Designed and managed a Facebook Ads campaign for an e-commerce
+                store that generated a 350% ROI and increased sales by 75%.
+              </p>
+              <div class="flex flex-wrap mb-4">
+                <span
+                  class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm mr-2 mb-2"
+                  >Facebook Ads</span
+                >
+                <span
+                  class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm mr-2 mb-2"
+                  >E-commerce</span
+                >
+                <span
+                  class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm mr-2 mb-2"
+                  >Retargeting</span
+                >
+              </div>
+              <a
+                href="#"
+                data-project-id="4"
+                class="inline-block text-indigo-600 font-medium hover:text-indigo-700 transition"
+                >View Case Study <i class="fas fa-arrow-right ml-1"></i
+              ></a>
+            </div>
+          </div>
+
+          <!-- Facebook Ads Project 2 -->
+          <div
+            class="project-card project-item bg-white rounded-lg shadow-lg overflow-hidden"
+            data-category="facebook"
+            data-project-id="5"
+          >
+            <div class="relative h-64 bg-gray-200">
+              <div
+                class="absolute inset-0 flex items-center justify-center bg-indigo-100"
+              >
+                <i class="fas fa-bullseye text-4xl text-indigo-500"></i>
+              </div>
+            </div>
+            <div class="p-6">
+              <h4 class="text-xl font-semibold text-gray-800 mb-2">
+                Lead Generation Campaign
+              </h4>
+              <p class="text-gray-600 mb-4">
+                Created a Facebook lead generation campaign for a SaaS company
+                that decreased cost per lead by 40% while maintaining lead
+                quality.
+              </p>
+              <div class="flex flex-wrap mb-4">
+                <span
+                  class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm mr-2 mb-2"
+                  >Facebook Ads</span
+                >
+                <span
+                  class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm mr-2 mb-2"
+                  >Lead Generation</span
+                >
+                <span
+                  class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm mr-2 mb-2"
+                  >Conversion Tracking</span
+                >
+              </div>
+              <a
+                href="#"
+                data-project-id="5"
+                class="inline-block text-indigo-600 font-medium hover:text-indigo-700 transition"
+                >View Case Study <i class="fas fa-arrow-right ml-1"></i
+              ></a>
+            </div>
+          </div>
+
+          <!-- Facebook Ads Project 3 -->
+          <div
+            class="project-card project-item bg-white rounded-lg shadow-lg overflow-hidden"
+            data-category="facebook"
+            data-project-id="6"
+          >
+            <div class="relative h-64 bg-gray-200">
+              <div
+                class="absolute inset-0 flex items-center justify-center bg-indigo-100"
+              >
+                <i class="fas fa-store text-4xl text-indigo-500"></i>
+              </div>
+            </div>
+            <div class="p-6">
+              <h4 class="text-xl font-semibold text-gray-800 mb-2">
+                Local Business Campaign
+              </h4>
+              <p class="text-gray-600 mb-4">
+                Managed a location-based Facebook ad campaign for a retail store
+                that increased foot traffic by 60% and boosted in-store sales.
+              </p>
+              <div class="flex flex-wrap mb-4">
+                <span
+                  class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm mr-2 mb-2"
+                  >Facebook Ads</span
+                >
+                <span
+                  class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm mr-2 mb-2"
+                  >Local Business</span
+                >
+                <span
+                  class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm mr-2 mb-2"
+                  >Geotargeting</span
+                >
+              </div>
+              <a
+                href="#"
+                data-project-id="6"
+                class="inline-block text-indigo-600 font-medium hover:text-indigo-700 transition"
+                >View Case Study <i class="fas fa-arrow-right ml-1"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- View More Button -->
+        <div class="text-center mt-12">
+          <a
+            href="#"
+            class="inline-block bg-indigo-600 text-white px-8 py-3 rounded-md font-semibold hover:bg-indigo-700 transition shadow-md"
+            >View All Projects</a
+          >
+        </div>
+      </div>
     </section>
 
     <!-- Testimonials Section -->
     <section id="testimonials" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">Client Testimonials</h2>
-                <div class="w-24 h-1 bg-indigo-600 mx-auto mb-8"></div>
-                <p class="text-gray-600 max-w-3xl mx-auto">Don't just take my word for it. Here's what my clients have to say about working with me.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- WordPress Projects -->
-            
-                
-                <!-- Facebook Ads Projects -->
-                
-                
-               
-                <!-- Testimonial 1 -->
-                <div class="testimonial-card bg-white p-8 rounded-lg shadow-lg">
-                    <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mr-4">
-                            <span class="text-indigo-700 font-bold">A</span>
-                        </div>
-                        <div>
-                            <h4 class="text-lg font-semibold text-gray-800">Ahmed Khan</h4>
-                            <p class="text-gray-600">E-commerce Store Owner</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 italic mb-6">"Jasim completely transformed our online store. His WordPress development skills are exceptional, and the website he created not only looks great but also significantly increased our sales. Highly recommended!"</p>
-                    <div class="flex text-yellow-400">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                
-                <!-- Testimonial 2 -->
-                <div class="testimonial-card bg-white p-8 rounded-lg shadow-lg">
-                    <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mr-4">
-                            <span class="text-indigo-700 font-bold">S</span>
-                        </div>
-                        <div>
-                            <h4 class="text-lg font-semibold text-gray-800">Sarah Johnson</h4>
-                            <p class="text-gray-600">Marketing Manager</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 italic mb-6">"The Facebook ad campaigns Jasim created for our company exceeded all expectations. He has a deep understanding of targeting and optimization, which resulted in a 3x return on our ad spend. We'll definitely continue working with him."</p>
-                    <div class="flex text-yellow-400">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                
-                <!-- Testimonial 3 -->
-                <div class="testimonial-card bg-white p-8 rounded-lg shadow-lg">
-                    <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mr-4">
-                            <span class="text-indigo-700 font-bold">R</span>
-                        </div>
-                        <div>
-                            <h4 class="text-lg font-semibold text-gray-800">Robert Chen</h4>
-                            <p class="text-gray-600">Restaurant Owner</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 italic mb-6">"Jasim did an outstanding job redesigning our restaurant website. He understood our needs perfectly and delivered a website that not only looks beautiful but also functions seamlessly. The online reservation system he implemented has been a game-changer for our business."</p>
-                    <div class="flex text-yellow-400">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-            </div>
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-gray-800 mb-4">
+            Client Testimonials
+          </h2>
+          <div class="w-24 h-1 bg-indigo-600 mx-auto mb-8"></div>
+          <p class="text-gray-600 max-w-3xl mx-auto">
+            Don't just take my word for it. Here's what my clients have to say
+            about working with me.
+          </p>
         </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- WordPress Projects -->
+
+          <!-- Facebook Ads Projects -->
+
+          <!-- Testimonial 1 -->
+          <div class="testimonial-card bg-white p-8 rounded-lg shadow-lg">
+            <div class="flex items-center mb-6">
+              <div
+                class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mr-4"
+              >
+                <span class="text-indigo-700 font-bold">A</span>
+              </div>
+              <div>
+                <h4 class="text-lg font-semibold text-gray-800">Ahmed Khan</h4>
+                <p class="text-gray-600">E-commerce Store Owner</p>
+              </div>
+            </div>
+            <p class="text-gray-700 italic mb-6">
+              "Jasim completely transformed our online store. His WordPress
+              development skills are exceptional, and the website he created not
+              only looks great but also significantly increased our sales.
+              Highly recommended!"
+            </p>
+            <div class="flex text-yellow-400">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="testimonial-card bg-white p-8 rounded-lg shadow-lg">
+            <div class="flex items-center mb-6">
+              <div
+                class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mr-4"
+              >
+                <span class="text-indigo-700 font-bold">S</span>
+              </div>
+              <div>
+                <h4 class="text-lg font-semibold text-gray-800">
+                  Sarah Johnson
+                </h4>
+                <p class="text-gray-600">Marketing Manager</p>
+              </div>
+            </div>
+            <p class="text-gray-700 italic mb-6">
+              "The Facebook ad campaigns Jasim created for our company exceeded
+              all expectations. He has a deep understanding of targeting and
+              optimization, which resulted in a 3x return on our ad spend. We'll
+              definitely continue working with him."
+            </p>
+            <div class="flex text-yellow-400">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="testimonial-card bg-white p-8 rounded-lg shadow-lg">
+            <div class="flex items-center mb-6">
+              <div
+                class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mr-4"
+              >
+                <span class="text-indigo-700 font-bold">R</span>
+              </div>
+              <div>
+                <h4 class="text-lg font-semibold text-gray-800">Robert Chen</h4>
+                <p class="text-gray-600">Restaurant Owner</p>
+              </div>
+            </div>
+            <p class="text-gray-700 italic mb-6">
+              "Jasim did an outstanding job redesigning our restaurant website.
+              He understood our needs perfectly and delivered a website that not
+              only looks beautiful but also functions seamlessly. The online
+              reservation system he implemented has been a game-changer for our
+              business."
+            </p>
+            <div class="flex text-yellow-400">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Call to Action Section -->
     <section class="py-20 hero-gradient text-white">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Take Your Online Presence to the Next Level?</h2>
-            <p class="text-xl mb-8 max-w-3xl mx-auto">Let's work together to create a stunning website and effective Facebook ad campaigns that will help your business grow.</p>
-            <a href="#contact" class="cta-button inline-block bg-white text-indigo-700 px-8 py-4 rounded-md font-semibold text-lg hover:bg-gray-100 transition shadow-lg">Get Started Today</a>
-        </div>
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">
+          Ready to Take Your Online Presence to the Next Level?
+        </h2>
+        <p class="text-xl mb-8 max-w-3xl mx-auto">
+          Let's work together to create a stunning website and effective
+          Facebook ad campaigns that will help your business grow.
+        </p>
+        <a
+          href="#contact"
+          class="cta-button inline-block bg-white text-indigo-700 px-8 py-4 rounded-md font-semibold text-lg hover:bg-gray-100 transition shadow-lg"
+          >Get Started Today</a
+        >
+      </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="py-20 bg-white">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">Get In Touch</h2>
-                <div class="w-24 h-1 bg-indigo-600 mx-auto mb-8"></div>
-                <p class="text-gray-600 max-w-3xl mx-auto">Ready to discuss your project? Contact me today and let's create something amazing together.</p>
-            </div>
-            
-            <div class="flex flex-col lg:flex-row">
-                <div class="lg:w-1/2 lg:pr-12 mb-12 lg:mb-0">
-                    <div class="bg-gray-50 p-8 rounded-lg shadow-lg h-full">
-                        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Contact Information</h3>
-                        <div class="space-y-6">
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mr-4">
-                                    <i class="fas fa-envelope text-indigo-600"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-medium text-gray-800 mb-1">Email</h4>
-                                    <a href="mailto:business.jasim@gmail.com" class="text-indigo-600 hover:text-indigo-700 transition">business.jasim@gmail.com</a>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mr-4">
-                                    <i class="fas fa-phone text-indigo-600"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-medium text-gray-800 mb-1">Phone</h4>
-                                    <a href="tel:+8801609899713" class="text-indigo-600 hover:text-indigo-700 transition">+8801609899713</a>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mr-4">
-                                    <i class="fas fa-clock text-indigo-600"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-medium text-gray-800 mb-1">Working Hours</h4>
-                                    <p class="text-gray-600">Monday - Friday: 9:00 AM - 6:00 PM</p>
-                                    <p class="text-gray-600">Saturday - Sunday: By Appointment</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-6">Connect With Me</h3>
-                        <div class="flex space-x-4">
-                            <a href="#" class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 hover:bg-indigo-200 transition">
-                                <i class="fab fa-linkedin-in text-xl"></i>
-                            </a>
-                            <a href="#" class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 hover:bg-indigo-200 transition">
-                                <i class="fab fa-twitter text-xl"></i>
-                            </a>
-                            <a href="#" class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 hover:bg-indigo-200 transition">
-                                <i class="fab fa-facebook-f text-xl"></i>
-                            </a>
-                            <a href="#" class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 hover:bg-indigo-200 transition">
-                                <i class="fab fa-github text-xl"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="lg:w-1/2">
-                    <form class="bg-white p-8 rounded-lg shadow-lg">
-                        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Send Me a Message</h3>
-                        <div class="mb-6">
-                            <label for="name" class="block text-gray-700 font-medium mb-2">Your Name</label>
-                            <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition" placeholder="John Doe" required>
-                        </div>
-                        
-                        <div class="mb-6">
-                            <label for="email" class="block text-gray-700 font-medium mb-2">Your Email</label>
-                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition" placeholder="john@example.com" required>
-                        </div>
-                        
-                        <div class="mb-6">
-                            <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
-                            <input type="text" id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition" placeholder="Project Inquiry">
-                        </div>
-                        
-                        <div class="mb-6">
-                            <label for="message" class="block text-gray-700 font-medium mb-2">Your Message</label>
-                            <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition" placeholder="Tell me about your project..." required></textarea>
-                        </div>
-                        
-                        <div class="flex items-center mb-6">
-                            <input type="checkbox" id="terms" class="h-5 w-5 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
-                            <label for="terms" class="ml-2 block text-gray-700">I agree to the terms and privacy policy</label>
-                        </div>
-                        
-                        <button type="submit" class="w-full bg-indigo-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-indigo-700 transition shadow-md">Send Message</button>
-                    </form>
-                </div>
-            </div>
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-gray-800 mb-4">Get In Touch</h2>
+          <div class="w-24 h-1 bg-indigo-600 mx-auto mb-8"></div>
+          <p class="text-gray-600 max-w-3xl mx-auto">
+            Ready to discuss your project? Contact me today and let's create
+            something amazing together.
+          </p>
         </div>
+
+        <div class="flex flex-col lg:flex-row">
+          <div class="lg:w-1/2 lg:pr-12 mb-12 lg:mb-0">
+            <div class="bg-gray-50 p-8 rounded-lg shadow-lg h-full">
+              <h3 class="text-2xl font-semibold text-gray-800 mb-6">
+                Contact Information
+              </h3>
+              <div class="space-y-6">
+                <div class="flex items-start">
+                  <div
+                    class="flex-shrink-0 w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mr-4"
+                  >
+                    <i class="fas fa-envelope text-indigo-600"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-medium text-gray-800 mb-1">
+                      Email
+                    </h4>
+                    <a
+                      href="mailto:business.jasim@gmail.com"
+                      class="text-indigo-600 hover:text-indigo-700 transition"
+                      >business.jasim@gmail.com</a
+                    >
+                  </div>
+                </div>
+
+                <div class="flex items-start">
+                  <div
+                    class="flex-shrink-0 w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mr-4"
+                  >
+                    <i class="fas fa-phone text-indigo-600"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-medium text-gray-800 mb-1">
+                      Phone
+                    </h4>
+                    <a
+                      href="tel:+8801609899713"
+                      class="text-indigo-600 hover:text-indigo-700 transition"
+                      >+8801609899713</a
+                    >
+                  </div>
+                </div>
+
+                <div class="flex items-start">
+                  <div
+                    class="flex-shrink-0 w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mr-4"
+                  >
+                    <i class="fas fa-clock text-indigo-600"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-medium text-gray-800 mb-1">
+                      Working Hours
+                    </h4>
+                    <p class="text-gray-600">
+                      Monday - Friday: 9:00 AM - 6:00 PM
+                    </p>
+                    <p class="text-gray-600">
+                      Saturday - Sunday: By Appointment
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-6">
+                Connect With Me
+              </h3>
+              <div class="flex space-x-4">
+                <a
+                  href="#"
+                  class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 hover:bg-indigo-200 transition"
+                >
+                  <i class="fab fa-linkedin-in text-xl"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 hover:bg-indigo-200 transition"
+                >
+                  <i class="fab fa-twitter text-xl"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 hover:bg-indigo-200 transition"
+                >
+                  <i class="fab fa-facebook-f text-xl"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 hover:bg-indigo-200 transition"
+                >
+                  <i class="fab fa-github text-xl"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:w-1/2">
+            <form class="bg-white p-8 rounded-lg shadow-lg">
+              <h3 class="text-2xl font-semibold text-gray-800 mb-6">
+                Send Me a Message
+              </h3>
+              <div class="mb-6">
+                <label for="name" class="block text-gray-700 font-medium mb-2"
+                  >Your Name</label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
+                  placeholder="John Doe"
+                  required
+                />
+              </div>
+
+              <div class="mb-6">
+                <label for="email" class="block text-gray-700 font-medium mb-2"
+                  >Your Email</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
+                  placeholder="john@example.com"
+                  required
+                />
+              </div>
+
+              <div class="mb-6">
+                <label
+                  for="subject"
+                  class="block text-gray-700 font-medium mb-2"
+                  >Subject</label
+                >
+                <input
+                  type="text"
+                  id="subject"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
+                  placeholder="Project Inquiry"
+                />
+              </div>
+
+              <div class="mb-6">
+                <label
+                  for="message"
+                  class="block text-gray-700 font-medium mb-2"
+                  >Your Message</label
+                >
+                <textarea
+                  id="message"
+                  rows="5"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
+                  placeholder="Tell me about your project..."
+                  required
+                ></textarea>
+              </div>
+
+              <div class="flex items-center mb-6">
+                <input
+                  type="checkbox"
+                  id="terms"
+                  class="h-5 w-5 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
+                />
+                <label for="terms" class="ml-2 block text-gray-700"
+                  >I agree to the terms and privacy policy</label
+                >
+              </div>
+
+              <button
+                type="submit"
+                class="w-full bg-indigo-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-indigo-700 transition shadow-md"
+              >
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between">
-                <div class="mb-8 md:mb-0">
-                    <h2 class="text-2xl font-bold mb-4">Jasim Uddin</h2>
-                    <p class="text-gray-400 max-w-md">WordPress Developer & Facebook Ads Specialist dedicated to helping businesses grow their online presence and increase revenue.</p>
-                </div>
-                
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                    <div>
-                        <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
-                        <ul class="space-y-2">
-                            <li><a href="#home" class="text-gray-400 hover:text-white transition">Home</a></li>
-                            <li><a href="#about" class="text-gray-400 hover:text-white transition">About</a></li>
-                            <li><a href="#services" class="text-gray-400 hover:text-white transition">Services</a></li>
-                            <li><a href="#projects" class="text-gray-400 hover:text-white transition">Projects</a></li>
-                            <li><a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div>
-                        <h3 class="text-lg font-semibold mb-4">Services</h3>
-                        <ul class="space-y-2">
-                            <li><a href="#wordpress-services" class="text-gray-400 hover:text-white transition">WordPress Development</a></li>
-                            <li><a href="#wordpress-services" class="text-gray-400 hover:text-white transition">Elementor Expert</a></li>
-                            <li><a href="#wordpress-services" class="text-gray-400 hover:text-white transition">Theme & Plugin Customization</a></li>
-                            <li><a href="#facebook-ads-services" class="text-gray-400 hover:text-white transition">Facebook Ads Management</a></li>
-                            <li><a href="#facebook-ads-services" class="text-gray-400 hover:text-white transition">Sales Funnel Creation</a></li>
-                        </ul>
-                    </div>
-                </div>
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row justify-between">
+          <div class="mb-8 md:mb-0">
+            <h2 class="text-2xl font-bold mb-4">Jasim Uddin</h2>
+            <p class="text-gray-400 max-w-md">
+              WordPress Developer & Facebook Ads Specialist dedicated to helping
+              businesses grow their online presence and increase revenue.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <div>
+              <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+              <ul class="space-y-2">
+                <li>
+                  <a
+                    href="#home"
+                    class="text-gray-400 hover:text-white transition"
+                    >Home</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#about"
+                    class="text-gray-400 hover:text-white transition"
+                    >About</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#services"
+                    class="text-gray-400 hover:text-white transition"
+                    >Services</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#projects"
+                    class="text-gray-400 hover:text-white transition"
+                    >Projects</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#contact"
+                    class="text-gray-400 hover:text-white transition"
+                    >Contact</a
+                  >
+                </li>
+              </ul>
             </div>
-            
-            <div class="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 mb-4 md:mb-0">&copy; 2025 Jasim Uddin. All rights reserved.</p>
-                <div class="flex space-x-4">
-                    <a href="#" class="text-gray-400 hover:text-white transition">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition">
-                        <i class="fab fa-github"></i>
-                    </a>
-                </div>
+
+            <div>
+              <h3 class="text-lg font-semibold mb-4">Services</h3>
+              <ul class="space-y-2">
+                <li>
+                  <a
+                    href="#wordpress-services"
+                    class="text-gray-400 hover:text-white transition"
+                    >WordPress Development</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#wordpress-services"
+                    class="text-gray-400 hover:text-white transition"
+                    >Elementor Expert</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#wordpress-services"
+                    class="text-gray-400 hover:text-white transition"
+                    >Theme & Plugin Customization</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#facebook-ads-services"
+                    class="text-gray-400 hover:text-white transition"
+                    >Facebook Ads Management</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#facebook-ads-services"
+                    class="text-gray-400 hover:text-white transition"
+                    >Sales Funnel Creation</a
+                  >
+                </li>
+              </ul>
             </div>
+          </div>
         </div>
+
+        <div
+          class="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center"
+        >
+          <p class="text-gray-400 mb-4 md:mb-0">
+            &copy; 2025 Jasim Uddin. All rights reserved.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white transition">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
+      </div>
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="back-to-top" class="fixed bottom-6 right-6 w-12 h-12 bg-indigo-600 text-white rounded-full flex items-center justify-center shadow-lg transform transition duration-300 scale-0 hover:bg-indigo-700">
-        <i class="fas fa-arrow-up"></i>
+    <button
+      id="back-to-top"
+      class="fixed bottom-6 right-6 w-12 h-12 bg-indigo-600 text-white rounded-full flex items-center justify-center shadow-lg transform transition duration-300 scale-0 hover:bg-indigo-700"
+    >
+      <i class="fas fa-arrow-up"></i>
     </button>
 
+    <!-- Project Details Popup -->
+    <div id="projectPopup" class="popup">
+      <div class="popup-content">
+        <span class="close-btn">&times;</span>
+        <div class="project-details-container">
+          <h2 id="projectTitle">Project Title</h2>
 
-<!-- Project Details Popup -->
-<div id="projectPopup" class="popup">
-    <div class="popup-content">
-      <span class="close-btn">&times;</span>
-      <div class="project-details-container">
-        <h2 id="projectTitle">Project Title</h2>
-        
-        <!-- Image Slider -->
-        <div class="project-image-slider">
-          <div class="slider-container">
-            <div id="projectImages" class="slides"></div>
-            <button class="slider-btn prev" onclick="changeSlide(-1)">❮</button>
-            <button class="slider-btn next" onclick="changeSlide(1)">❯</button>
-          </div>
-        </div>
-        
-        <!-- Project Details -->
-        <div class="project-details">
-          <div class="project-info">
-            <div class="info-item">
-              <h4>Client:</h4>
-              <p id="projectClient">Client Name</p>
-            </div>
-            <div class="info-item">
-              <h4>Date:</h4>
-              <p id="projectDate">January 2024</p>
-            </div>
-            <div class="info-item">
-              <h4>Category:</h4>
-              <p id="projectCategory">WordPress Development</p>
-            </div>
-            <div class="info-item">
-              <h4>Website:</h4>
-              <p><a id="projectURL" href="#" target="_blank">Visit Website</a></p>
+          <!-- Image Slider -->
+          <div class="project-image-slider">
+            <div class="slider-container">
+              <div id="projectImages" class="slides"></div>
+              <button class="slider-btn prev" onclick="changeSlide(-1)">
+                ❮
+              </button>
+              <button class="slider-btn next" onclick="changeSlide(1)">
+                ❯
+              </button>
             </div>
           </div>
-          
-          <div class="project-description">
-            <h3>Project Description</h3>
-            <p id="projectDescription">Project description goes here...</p>
+
+          <!-- Project Details -->
+          <div class="project-details">
+            <div class="project-info">
+              <div class="info-item">
+                <h4>Client:</h4>
+                <p id="projectClient">Client Name</p>
+              </div>
+              <div class="info-item">
+                <h4>Date:</h4>
+                <p id="projectDate">January 2024</p>
+              </div>
+              <div class="info-item">
+                <h4>Category:</h4>
+                <p id="projectCategory">WordPress Development</p>
+              </div>
+              <div class="info-item">
+                <h4>Website:</h4>
+                <p>
+                  <a id="projectURL" href="#" target="_blank">Visit Website</a>
+                </p>
+              </div>
+            </div>
+
+            <div class="project-description">
+              <h3>Project Description</h3>
+              <p id="projectDescription">Project description goes here...</p>
+            </div>
+
+            <div class="project-technologies">
+              <h3>Technologies Used</h3>
+              <ul id="projectTech"></ul>
+            </div>
+
+            <button id="talkNowBtn" class="cta-button">
+              Talk Now About Your Project
+            </button>
           </div>
-          
-          <div class="project-technologies">
-            <h3>Technologies Used</h3>
-            <ul id="projectTech"></ul>
-          </div>
-          
-          <button id="talkNowBtn" class="cta-button">Talk Now About Your Project</button>
         </div>
       </div>
     </div>
-  </div>
-  
-  <!-- Contact Form Popup -->
-  <div id="contactFormPopup" class="popup">
-    <div class="popup-content">
-      <span class="close-btn">&times;</span>
-      <h2>Let's Talk About Your Project</h2>
-      <form id="contactForm">
-        <div class="form-group">
-          <label for="name">Your Name</label>
-          <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+    <!-- Contact Form Popup -->
+    <div id="contactFormPopup" class="popup">
+      <div class="popup-content">
+        <span class="close-btn">&times;</span>
+        <h2>Let's Talk About Your Project</h2>
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Enter your name"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="Enter your phone number"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter your email address"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <select id="subject" name="subject" required>
+              <option value="" disabled selected>Select a subject</option>
+              <option value="Web Design">Web Design</option>
+              <option value="Facebook Ads">Facebook Ads</option>
+              <option value="Custom Solution">Custom Solution</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Describe a little about your business"
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit" class="cta-button">Send Message</button>
+        </form>
+        <div id="formSuccess" class="success-message" style="display: none">
+          <h3>Thank you for your message!</h3>
+          <p>I'll get back to you shortly.</p>
         </div>
-        
-        <div class="form-group">
-          <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" placeholder="Enter your email address" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="subject">Subject</label>
-          <select id="subject" name="subject" required>
-            <option value="" disabled selected>Select a subject</option>
-            <option value="Web Design">Web Design</option>
-            <option value="Facebook Ads">Facebook Ads</option>
-            <option value="Custom Solution">Custom Solution</option>
-            <option value="Other">Other</option>
-          </select>
-        </div>
-        
-        <div class="form-group">
-          <label for="message">Your Message</label>
-          <textarea id="message" name="message" placeholder="Describe a little about your business" required></textarea>
-        </div>
-        
-        <button type="submit" class="cta-button">Send Message</button>
-      </form>
-      <div id="formSuccess" class="success-message" style="display: none;">
-        <h3>Thank you for your message!</h3>
-        <p>I'll get back to you shortly.</p>
       </div>
     </div>
-  </div>
-  
-
-
-
 
     <!-- JavaScript -->
-    <script>
-        // Mobile Menu Toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        
-        // Sticky Navigation
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('shadow-md');
-                navbar.classList.add('bg-white');
-            } else {
-                navbar.classList.remove('shadow-md');
-            }
-        });
-        
-        // Back to Top Button
-        const backToTopButton = document.getElementById('back-to-top');
-        
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                backToTopButton.classList.add('scale-100');
-            } else {
-                backToTopButton.classList.remove('scale-100');
-            }
-        });
-        
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-        
-        // Project Filtering
-        const projectFilters = document.querySelectorAll('.project-filter');
-        const projectCards = document.querySelectorAll('.project-card');
-        
-        projectFilters.forEach(filter => {
-            filter.addEventListener('click', () => {
-                // Update active filter button
-                projectFilters.forEach(btn => {
-                    btn.classList.remove('bg-indigo-600', 'text-white');
-                    btn.classList.add('bg-gray-200', 'text-gray-700');
-                });
-                filter.classList.remove('bg-gray-200', 'text-gray-700');
-                filter.classList.add('bg-indigo-600', 'text-white');
-                
-                // Filter projects
-                const category = filter.getAttribute('data-filter');
-                
-                projectCards.forEach(card => {
-                    if (category === 'all' || card.getAttribute('data-category') === category) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
-        
-        // Animation on scroll
-        function handleIntersection(entries, observer) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animatable');
-                }
-            });
-        }
-        
-        const observer = new IntersectionObserver(handleIntersection, {
-            root: null,
-            threshold: 0.1
-        });
-        
-        document.querySelectorAll('.fade-in').forEach(element => {
-            observer.observe(element);
-        });
-        
-        // Skills progress animation
-        const progressBars = document.querySelectorAll('.progress-fill');
-        
-        function animateProgress() {
-            progressBars.forEach(bar => {
-                const width = bar.style.width;
-                bar.style.width = '0';
-                setTimeout(() => {
-                    bar.style.width = width;
-                }, 100);
-            });
-        }
-        
-        // Trigger animations when page loads
-        window.addEventListener('load', () => {
-            animateProgress();
-        });
-    </script>
 
-<script>
-    // Sample project data - replace with your actual projects
-    const projectsData = [
-      {
-        id: 1,
-        title: "E-commerce Website Redesign",
-        client: "FashionHub",
-        date: "January 2024",
-        category: "WordPress Development",
-        url: "https://fashionhub-example.com",
-        description: "Completely redesigned an outdated e-commerce website for a fashion retailer, focusing on improving user experience and conversion rates. The new design features a clean, modern aesthetic with improved product categorization, filtering options, and a streamlined checkout process. The site was built on WordPress with WooCommerce, implementing custom features to meet the client's specific requirements.",
-        technologies: ["WordPress", "WooCommerce", "Custom PHP", "JavaScript", "CSS", "Responsive Design"],
-        images: [
-          "https://placehold.co/600x400/5540fd/ffffff?text=FashionHub+Homepage",
-          "https://placehold.co/600x400/5540fd/ffffff?text=Product+Category+Page",
-          "https://placehold.co/600x400/5540fd/ffffff?text=Mobile+View"
-        ]
-      },
-      {
-        id: 2,
-        title: "Facebook Ad Campaign for Restaurant Chain",
-        client: "Taste of Asia",
-        date: "December 2023",
-        category: "Facebook Ads",
-        url: "https://tasteofasia-example.com",
-        description: "Developed and managed a comprehensive Facebook ad campaign for a chain of Asian fusion restaurants. The campaign targeted potential customers within a 10-mile radius of each location, promoting seasonal menu items and special offers. Through careful audience targeting, compelling creative assets, and ongoing optimization, the campaign achieved a 320% return on ad spend and increased foot traffic by 45%.",
-        technologies: ["Facebook Ads Manager", "Audience Targeting", "Ad Creative Design", "Analytics", "A/B Testing"],
-        images: [
-          "https://placehold.co/600x400/5540fd/ffffff?text=Facebook+Ad+Creative",
-          "https://placehold.co/600x400/5540fd/ffffff?text=Campaign+Results",
-          "https://placehold.co/600x400/5540fd/ffffff?text=Audience+Demographics"
-        ]
-      },
-      {
-        id: 3,
-        title: "Corporate Website with Booking System",
-        client: "ConsultPro",
-        date: "October 2023",
-        category: "WordPress Development",
-        url: "https://consultpro-example.com",
-        description: "Built a professional website for a consulting firm with an integrated booking system that allows clients to schedule appointments with specific consultants. The site includes custom user roles, an admin dashboard for managing appointments, and automated email notifications. The design is sleek and professional, reflecting the brand's corporate identity while maintaining excellent usability.",
-        technologies: ["WordPress", "Custom Plugin Development", "JavaScript", "MySQL", "Bootstrap", "API Integration"],
-        images: [
-          "https://placehold.co/600x400/5540fd/ffffff?text=ConsultPro+Homepage",
-          "https://placehold.co/600x400/5540fd/ffffff?text=Booking+System",
-          "https://placehold.co/600x400/5540fd/ffffff?text=Admin+Dashboard"
-        ]
-      }
-    ];
-    
-    // Variables for project popup
-    let currentSlide = 0;
-    let currentProjectId = null;
-    
-    // Elements
-    const projectPopup = document.getElementById('projectPopup');
-    const contactFormPopup = document.getElementById('contactFormPopup');
-    const projectTitle = document.getElementById('projectTitle');
-    const projectClient = document.getElementById('projectClient');
-    const projectDate = document.getElementById('projectDate');
-    const projectCategory = document.getElementById('projectCategory');
-    const projectURL = document.getElementById('projectURL');
-    const projectDescription = document.getElementById('projectDescription');
-    const projectTech = document.getElementById('projectTech');
-    const projectImages = document.getElementById('projectImages');
-    const talkNowBtn = document.getElementById('talkNowBtn');
-    const contactForm = document.getElementById('contactForm');
-    const formSuccess = document.getElementById('formSuccess');
-    
-    // Add event listeners for project items
-    document.addEventListener('DOMContentLoaded', function() {
-      // Add click event to all project items
-      const projectItems = document.querySelectorAll('.project-item, .view-project-btn');
-      projectItems.forEach(item => {
-        item.addEventListener('click', function(e) {
-          e.preventDefault();
-          const projectId = parseInt(this.getAttribute('data-project-id'));
-          openProjectPopup(projectId);
-        });
-      });
-    
-      // Close popups when clicking outside content
-      window.addEventListener('click', function(e) {
-        if (e.target === projectPopup) {
-          closeProjectPopup();
-        }
-        if (e.target === contactFormPopup) {
-          closeContactFormPopup();
-        }
-      });
-    
-      // Close popups with ESC key
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-          closeProjectPopup();
-          closeContactFormPopup();
-        }
-      });
-    
-      // Close buttons
-      const closeButtons = document.querySelectorAll('.close-btn');
-      closeButtons.forEach(btn => {
-        btn.addEventListener('click', function() {
-          if (this.closest('#projectPopup')) {
-            closeProjectPopup();
-          } else if (this.closest('#contactFormPopup')) {
-            closeContactFormPopup();
-          }
-        });
-      });
-    
-      // Talk Now button opens contact form
-      talkNowBtn.addEventListener('click', function() {
-        openContactFormPopup();
-      });
-    
-      // Contact form submission
-      contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        submitContactForm();
-      });
-    });
-    
-    // Open project popup
-    function openProjectPopup(projectId) {
-      // Find project data by ID
-      const project = projectsData.find(p => p.id === projectId);
-      if (!project) return;
-    
-      currentProjectId = projectId;
-      
-      // Set project details
-      projectTitle.textContent = project.title;
-      projectClient.textContent = project.client;
-      projectDate.textContent = project.date;
-      projectCategory.textContent = project.category;
-      projectURL.textContent = project.url;
-      projectURL.href = project.url;
-      projectDescription.textContent = project.description;
-      
-      // Set technologies
-      projectTech.innerHTML = '';
-      project.technologies.forEach(tech => {
-        const li = document.createElement('li');
-        li.textContent = tech;
-        projectTech.appendChild(li);
-      });
-      
-      // Create image slides
-      projectImages.innerHTML = '';
-      currentSlide = 0;
-      
-      project.images.forEach(imgSrc => {
-        const slide = document.createElement('div');
-        slide.className = 'slide';
-        slide.style.backgroundImage = `url(${imgSrc})`;
-        projectImages.appendChild(slide);
-      });
-      
-      updateSlidePosition();
-      
-      // Show popup
-      projectPopup.style.display = 'block';
-      document.body.style.overflow = 'hidden'; // Prevent body scrolling
-    }
-    
-    // Close project popup
-    function closeProjectPopup() {
-      projectPopup.style.display = 'none';
-      document.body.style.overflow = 'auto'; // Re-enable body scrolling
-    }
-    
-    // Open contact form popup
-    function openContactFormPopup() {
-      // Hide success message and show form
-      formSuccess.style.display = 'none';
-      contactForm.style.display = 'block';
-      
-      // Show popup
-      contactFormPopup.style.display = 'block';
-    }
-    
-    // Close contact form popup
-    function closeContactFormPopup() {
-      contactFormPopup.style.display = 'none';
-    }
-    
-    // Change image slide
-    function changeSlide(direction) {
-      const slides = document.querySelectorAll('.slide');
-      if (!slides.length) return;
-      
-      currentSlide += direction;
-      
-      if (currentSlide >= slides.length) {
-        currentSlide = 0;
-      } else if (currentSlide < 0) {
-        currentSlide = slides.length - 1;
-      }
-      
-      updateSlidePosition();
-    }
-    
-    // Update slide position
-    function updateSlidePosition() {
-      const slides = document.querySelectorAll('.slide');
-      if (!slides.length) return;
-      
-      projectImages.style.transform = `translateX(-${currentSlide * 100}%)`;
-    }
-    
-    // Submit contact form
-    function submitContactForm() {
-      const name = document.getElementById('name').value;
-      const phone = document.getElementById('phone').value;
-      const email = document.getElementById('email').value;
-      const subject = document.getElementById('subject').value;
-      const message = document.getElementById('message').value;
-      
-      // Prepare data for email (to be implemented later)
-      /*
-      const emailData = {
-        name: name,
-        phone: phone,
-        email: email,
-        subject: subject,
-        message: message
-      };
-      // Send email code will go here
-      */
-      
-      // Redirect to WhatsApp with form data
-      const whatsappNumber = "8801609899713"; // Replace with your actual WhatsApp number
-      const whatsappText = `Name: ${name}%0APhone: ${phone}%0AEmail: ${email}%0ASubject: ${subject}%0AMessage: ${message}`;
-      const whatsappURL = `https://wa.me/${whatsappNumber}/?text=${whatsappText}`;
-      
-      // Show success message
-      contactForm.style.display = 'none';
-      formSuccess.style.display = 'block';
-      
-      // Open WhatsApp in new tab
-      setTimeout(() => {
-        window.open(whatsappURL, '_blank');
-      }, 1000);
-      
-      // Reset form
-      contactForm.reset();
-    }
-    </script>
-    
-
-
-
-
-
-</body>
+    <script src="port-main.js"></script>
+    <script src="project-overview.js"></script>
+  </body>
 </html>
