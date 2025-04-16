@@ -140,6 +140,7 @@ const projectDescription = document.getElementById("projectDescription");
 const projectTech = document.getElementById("projectTech");
 const projectImages = document.getElementById("projectImages");
 const talkNowBtn = document.getElementById("talkNowBtn");
+
 const contactForm = document.getElementById("contactForm");
 const formSuccess = document.getElementById("formSuccess");
 
@@ -185,7 +186,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Contact form submission
   contactForm.addEventListener("submit", function (e) {
     e.preventDefault();
-    submitContactForm();
+    submitContactForm(e);
   });
 });
 
@@ -278,12 +279,12 @@ function updateSlidePosition() {
 }
 
 // Submit contact form
-function submitContactForm() {
-  const name = document.getElementById("name").value;
-  const phone = document.getElementById("phone").value;
-  const email = document.getElementById("email").value;
-  const subject = document.getElementById("subject").value;
-  const message = document.getElementById("message").value;
+function submitContactForm(e) {
+  const name = e.target.name.value;
+  const phone = e.target.phone.value;
+  const email = e.target.email.value;
+  const subject = e.target.subject.value;
+  const message = e.target.message.value;
 
   // Prepare data for email (to be implemented later)
   /*
