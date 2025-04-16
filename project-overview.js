@@ -303,14 +303,17 @@ const emailData = {
   const whatsappText = `Name: ${name}%0APhone: ${phone}%0AEmail: ${email}%0ASubject: ${subject}%0AMessage: ${message}`;
   const whatsappURL = `https://wa.me/${whatsappNumber}/?text=${whatsappText}`;
 
-  // Show success message
-  contactForm.style.display = "none";
-  formSuccess.style.display = "block";
-
   // Open WhatsApp in new tab
   setTimeout(() => {
     window.open(whatsappURL, "_blank");
   }, 1000);
+
+  setTimeout(() => {
+    contactForm.style.display = "none";
+    formSuccess.style.display = "block";
+  }, 1010);
+
+  // Show success message
 
   // Reset form
   contactForm.reset();
