@@ -190,7 +190,6 @@ document.addEventListener("DOMContentLoaded", function () {
   contactForm.addEventListener("submit", function (e) {
     submitContactForm(e);
     document.getElementById("contactFormPopup").style.display = "none";
-    document.getElementById("formSuccessPopUp").style.display = "block";
   });
 
   contactFormPage.addEventListener("submit", (e) => {
@@ -250,7 +249,7 @@ function closeProjectPopup() {
 // Open contact form popup
 function openContactFormPopup() {
   // Hide success message and show form
-  formSuccess.style.display = "none";
+
   contactForm.style.display = "block";
 
   // Show popup
