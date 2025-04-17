@@ -1,4 +1,5 @@
 // Sample project data - replace with your actual projects
+emailjs.init("sHkPpPBJ0Kt6sSyWV"); // এখানে তোমার EmailJS public key বসাও
 const projectsData = [
   {
     id: 1,
@@ -285,39 +286,34 @@ function updateSlidePosition() {
 }
 
 // Submit contact form
+// Initialize EmailJS
+
 function submitContactForm(e) {
   e.preventDefault();
-  const name = e.target.name.value;
-  const phone = e.target.phone.value;
-  const email = e.target.email.value;
-  const subject = e.target.subject.value;
-  const message = e.target.message.value;
 
-  // Prepare data for email (to be implemented later)
-  /*
-const emailData = {
-  name: name,
-  phone: phone,
-  email: email,
-  subject: subject,
-  message: message
-};
-// Send email code will go here
-*/
+  const form = e.target;
+  const name = form.name.value;
+  const phone = form.phone.value;
+  const email = form.email.value;
+  const subject = form.subject.value;
+  const message = form.message.value;
 
-  // Redirect to WhatsApp with form data
-  const whatsappNumber = "8801609899713"; // Replace with your actual WhatsApp number
+  // WhatsApp redirect
+  const whatsappNumber = "8801609899713"; // তোমার WhatsApp নাম্বার
   const whatsappText = `Name: ${name}%0APhone: ${phone}%0AEmail: ${email}%0ASubject: ${subject}%0AMessage: ${message}`;
   const whatsappURL = `https://wa.me/${whatsappNumber}/?text=${whatsappText}`;
-
-  // Open WhatsApp in new tab
   window.open(whatsappURL, "_blank");
 
-  contactFormPage.style.display = "none";
-  formSuccessMseg.style.display = "block";
-
-  // Show success message
-
-  // Reset form
-  contactFormPage.reset();
+  // Send Email via EmailJS
+  emailjs
+    .sendForm("service_v37td2n", "template_mvpvui8", form)
+    .then(() => {
+      document.getElementById("contactFormPopup").style.display = "none";
+      document.getElementById("contactFormPage").style.display = "none";
+      document.getElementById("formSuccessMseg").style.display = "block";
+      form.reset();
+    })
+    .catch((error) => {
+      alert("❌ Email sending failed: " + JSON.stringify(error));
+    });
 }
