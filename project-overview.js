@@ -142,7 +142,9 @@ const projectImages = document.getElementById("projectImages");
 const talkNowBtn = document.getElementById("talkNowBtn");
 
 const contactForm = document.getElementById("contactForm");
+const contactFormPage = document.getElementById("contactFormPage");
 const formSuccess = document.getElementById("formSuccess");
+const formSuccessMseg = document.getElementById("formSuccessMseg");
 
 // Add event listeners for project items
 document.addEventListener("DOMContentLoaded", function () {
@@ -183,8 +185,12 @@ document.addEventListener("DOMContentLoaded", function () {
   // Talk Now button opens contact form
   talkNowBtn.addEventListener("click", openContactFormPopup);
 
-  // Contact form submission
+  // popUp Contact form submission
   contactForm.addEventListener("submit", function (e) {
+    submitContactForm(e);
+  });
+
+  contactFormPage.addEventListener("submit", (e) => {
     e.preventDefault();
     submitContactForm(e);
   });
@@ -280,6 +286,7 @@ function updateSlidePosition() {
 
 // Submit contact form
 function submitContactForm(e) {
+  e.preventDefault();
   const name = e.target.name.value;
   const phone = e.target.phone.value;
   const email = e.target.email.value;
@@ -304,17 +311,13 @@ const emailData = {
   const whatsappURL = `https://wa.me/${whatsappNumber}/?text=${whatsappText}`;
 
   // Open WhatsApp in new tab
-  setTimeout(() => {
-    window.open(whatsappURL, "_blank");
-  }, 1000);
+  window.open(whatsappURL, "_blank");
 
-  setTimeout(() => {
-    contactForm.style.display = "none";
-    formSuccess.style.display = "block";
-  }, 1010);
+  contactFormPage.style.display = "none";
+  formSuccessMseg.style.display = "block";
 
   // Show success message
 
   // Reset form
-  contactForm.reset();
+  contactFormPage.reset();
 }
