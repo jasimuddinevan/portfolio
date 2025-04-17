@@ -189,10 +189,11 @@ document.addEventListener("DOMContentLoaded", function () {
   // popUp Contact form submission
   contactForm.addEventListener("submit", function (e) {
     submitContactForm(e);
+    document.getElementById("contactFormPopup").style.display = "none";
+    document.getElementById("formSuccessPopUp").style.display = "block";
   });
 
   contactFormPage.addEventListener("submit", (e) => {
-    e.preventDefault();
     submitContactForm(e);
   });
 });
@@ -308,12 +309,9 @@ function submitContactForm(e) {
   emailjs
     .sendForm("service_v37td2n", "template_mvpvui8", form)
     .then(() => {
-      document.getElementById("contactFormPopup").style.display = "none";
       document.getElementById("contactFormPage").style.display = "none";
       document.getElementById("formSuccessMseg").style.display = "block";
       form.reset();
     })
-    .catch((error) => {
-      alert("❌ Email sending failed: " + JSON.stringify(error));
-    });
+    .catch(() => {});
 }
