@@ -123,20 +123,36 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-gradient min-h-screen flex items-center py-16">
+
+    <section
+      id="home"
+      class="hero-gradient min-h-screen flex items-center py-16"
+    >
       <div class="svg-background">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 810" preserveAspectRatio="xMidYMid slice">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 810"
+          preserveAspectRatio="xMidYMid slice"
+        >
           <defs>
             <filter id="glow">
-              <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+              <feGaussianBlur stdDeviation="2.5" result="coloredBlur" />
               <feMerge>
-                <feMergeNode in="coloredBlur"/>
-                <feMergeNode in="SourceGraphic"/>
+                <feMergeNode in="coloredBlur" />
+                <feMergeNode in="SourceGraphic" />
               </feMerge>
             </filter>
           </defs>
           <g>
-            <circle cx="200" cy="200" r="50" fill="none" stroke="#ffffff" stroke-width="2" filter="url(#glow)">
+            <circle
+              cx="200"
+              cy="200"
+              r="50"
+              fill="none"
+              stroke="#ffffff"
+              stroke-width="2"
+              filter="url(#glow)"
+            >
               <animateTransform
                 attributeName="transform"
                 type="translate"
@@ -146,7 +162,15 @@
                 repeatCount="indefinite"
               />
             </circle>
-            <circle cx="300" cy="600" r="70" fill="none" stroke="#ffffff" stroke-width="2" filter="url(#glow)">
+            <circle
+              cx="300"
+              cy="600"
+              r="70"
+              fill="none"
+              stroke="#ffffff"
+              stroke-width="2"
+              filter="url(#glow)"
+            >
               <animateTransform
                 attributeName="transform"
                 type="translate"
@@ -156,7 +180,15 @@
                 repeatCount="indefinite"
               />
             </circle>
-            <circle cx="1000" cy="400" r="60" fill="none" stroke="#ffffff" stroke-width="2" filter="url(#glow)">
+            <circle
+              cx="1000"
+              cy="400"
+              r="60"
+              fill="none"
+              stroke="#ffffff"
+              stroke-width="2"
+              filter="url(#glow)"
+            >
               <animateTransform
                 attributeName="transform"
                 type="translate"
@@ -189,7 +221,9 @@
       <div class="container mx-auto px-4 sm:px-6 lg:px-8 content">
         <div class="flex flex-col md:flex-row items-center justify-between">
           <div class="md:w-1/2 text-white my-16 md:mb-0">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            <h1
+              class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
+            >
               Build Perfect Web Solutions & Ultimate Marketing Growth
             </h1>
             <p class="text-xl mb-8 text-indigo-100">
@@ -199,7 +233,9 @@
               focus on real results and long-term growth, I turn ambition into
               achievement.
             </p>
-            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+            <div
+              class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4"
+            >
               <a
                 onclick="openContactFormPopup()"
                 class="inline-flex items-center justify-center h-16 px-10 py-0 text-xl font-semibold text-center no-underline align-middle transition-all duration-300 ease-in-out bg-white rounded-xl cursor-pointer select-none text-blue-700 focus:shadow-xs focus:no-underline"
@@ -215,86 +251,13 @@
             </div>
           </div>
           <div class="md:w-1/2 flex justify-center">
-            <div class="bg-white p-6 rounded-lg shadow-2xl transform rotate-3 transition duration-500 hover:rotate-0">
+            <div
+              class="bg-white p-6 rounded-lg shadow-2xl transform rotate-3 transition duration-500 hover:rotate-0"
+            >
               <div class="h-64 w-64 md:h-80 md:w-80 rounded-md overflow-hidden">
                 <img
                   src="https://media.licdn.com/dms/image/v2/D5603AQHsCM0svhDYvw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1705861133432?e=1750291200&v=beta&t=CoIXtguMSVzTRnfTP1jxfa4q-r1pwz3-y9t5pjhu8Iw&fbclid=IwY2xjawJtu4FleHRuA2FlbQIxMAABHu7gN7TZlLA9moLJlDgO0kEOK3vlA7Pu8fludl1Jmm2wzv4N6mFTuLlaMhpL_aem_Ao4Wi7x48UleWFVWrmIhWg"
                   alt=""
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-      <!-- Animated SVG Background -->
-      <div class="absolute inset-0 z-0 pointer-events-none">
-        <svg
-          class="w-full h-full"
-          xmlns="http://www.w3.org/2000/svg"
-          preserveAspectRatio="none"
-        >
-          <defs>
-            <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#4338CA" />
-              <stop offset="100%" stop-color="#6D28D9" />
-            </linearGradient>
-          </defs>
-          <path fill="url(#grad)">
-            <animate
-              attributeName="d"
-              dur="12s"
-              repeatCount="indefinite"
-              values="
-              M0,320 C120,240 280,400 500,320 C700,240 880,440 1200,320 L1200,0 L0,0 Z;
-              M0,280 C180,360 300,200 500,300 C680,400 900,220 1200,300 L1200,0 L0,0 Z;
-              M0,320 C120,240 280,400 500,320 C700,240 880,440 1200,320 L1200,0 L0,0 Z
-            "
-            />
-          </path>
-        </svg>
-      </div>
-
-      <!-- Content -->
-      <div class="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col md:flex-row items-center justify-between">
-          <div class="md:w-1/2 text-white my-16 md:mb-0">
-            <h1
-              class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
-            >
-              Build Perfect Web Solutions & Ultimate Marketing Growth
-            </h1>
-            <p class="text-xl mb-8 text-indigo-100">
-              I’ve helped over 17 businesses increase their sales by up to 44%,
-              and helped numerous others reach their goals. With a focus on real
-              results and long-term growth, I turn ambition into achievement.
-            </p>
-            <div
-              class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4"
-            >
-              <a
-                onclick="openContactFormPopup()"
-                class="inline-flex items-center justify-center h-16 px-10 py-0 text-xl font-semibold text-blue-700 bg-white rounded-xl"
-              >
-                Get Free Support
-              </a>
-              <a
-                href="#services"
-                class="inline-flex items-center justify-center h-16 px-10 py-0 text-xl font-semibold border-2 border-white text-white rounded-xl hover:bg-white hover:text-blue-700 transition duration-300"
-              >
-                View Services
-              </a>
-            </div>
-          </div>
-          <div class="md:w-1/2 flex justify-center">
-            <div
-              class="bg-white bg-opacity-20 backdrop-blur-md p-6 rounded-2xl shadow-2xl transform rotate-3 transition duration-500 hover:rotate-0 border border-white/20"
-            >
-              <div class="h-64 w-64 md:h-80 md:w-80 rounded-md overflow-hidden">
-                <img
-                  src="https://media.licdn.com/dms/image/v2/D5603AQHsCM0svhDYvw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1705861133432"
-                  alt="Profile"
-                  class="object-cover w-full h-full"
                 />
               </div>
             </div>
