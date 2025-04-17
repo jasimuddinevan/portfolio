@@ -54,9 +54,9 @@
             <p class="text-xl text-gray-600 mb-8">Showcasing innovative web design solutions that combine aesthetics with functionality to create engaging user experiences.</p>
             
             
-            <div class="bg-white rounded-xl shadow-lg p-6 transform hover:scale-[1.02] transition-transform duration-300">
-                <h3 class="text-2xl font-semibold text-gray-800 mb-4">Project Overview</h3>
-                <p class="text-gray-700">Developed a modern e-commerce platform for FashionHub Boutique, focusing on user experience and mobile responsiveness. The solution includes advanced filtering, real-time inventory updates, and integrated payment processing.</p>
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-16 transform hover:scale-[1.02] transition-transform duration-300">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-6">Project Overview</h3>
+                <p class="text-gray-700 leading-relaxed">Developed a modern e-commerce platform for FashionHub Boutique, focusing on user experience and mobile responsiveness. The solution includes advanced filtering, real-time inventory updates, and integrated payment processing.</p>
             </div>
         </div>
 
@@ -71,9 +71,16 @@
         to { opacity: 1; transform: translateY(0); }
     }
 
-    .project-details-container {
+    .project-details-container,
+    .website-showcase,
+    .project-details-section,
+    nav .container,
+    footer .container {
         max-width: 1200px;
         margin: 0 auto;
+        width: 100%;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 
     .website-showcase img {
@@ -102,6 +109,7 @@
 
     footer {
         background: linear-gradient(to bottom, #ffffff, #f9fafb);
+        width: 100%;
     }
 </style>
 
@@ -109,7 +117,7 @@
 
 
             <!-- Website Image Showcase Section -->
-            <div class="website-showcase mb-12 bg-white rounded-xl shadow-lg p-6 animate-fade-in">
+            <div class="website-showcase mb-16 bg-white rounded-xl shadow-lg p-6 animate-fade-in">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div class="relative overflow-hidden rounded-lg group">
                         <img src="https://via.placeholder.com/600x400" alt="Website Design 1" class="w-full h-auto transition-transform duration-500 group-hover:scale-105">
@@ -129,7 +137,7 @@
            
 
             <!-- Project Details Section -->
-            <div class="bg-white rounded-xl shadow-lg p-6 mb-8 transform hover:scale-[1.02] transition-transform duration-300 group">
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-16 transform hover:scale-[1.02] transition-transform duration-300 group">
                 <div class="relative overflow-hidden rounded-lg mb-6">
                     <img src="https://via.placeholder.com/800x1200" alt="E-commerce Website Design" class="w-full h-auto rounded-lg transition-transform duration-500 group-hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -185,7 +193,7 @@
              </div>
 
              <!-- Case Study Section -->
-        <div class="bg-white rounded-xl shadow-lg p-6 mb-8 transform hover:scale-[1.02] transition-transform duration-300">
+        <div class="bg-white rounded-xl shadow-lg p-6 mb-16 transform hover:scale-[1.02] transition-transform duration-300">
             <h3 class="text-2xl font-semibold text-gray-800 mb-4">Key Achievements</h3>
             <ul class="space-y-2 text-gray-700">
                 <li class="flex items-center"><span class="text-indigo-600 mr-2">✓</span> 40% increase in mobile conversions</li>
@@ -205,32 +213,39 @@
     </div>
 </div>
  <!-- Footer Section -->
- <footer class="mt-16 border-t border-gray-200 pt-8">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="space-y-4">
-            <h4 class="text-lg font-semibold text-gray-800">Contact</h4>
-            <p class="text-gray-600">Email: jasim@example.com</p>
-            <p class="text-gray-600">Phone: +1 234 567 890</p>
-        </div>
-        <div class="space-y-4">
-            <h4 class="text-lg font-semibold text-gray-800">Social Media</h4>
-            <div class="flex space-x-4">
-                <a href="#" class="text-gray-600 hover:text-indigo-600"><i class="fab fa-linkedin"></i></a>
-                <a href="#" class="text-gray-600 hover:text-indigo-600"><i class="fab fa-github"></i></a>
-                <a href="#" class="text-gray-600 hover:text-indigo-600"><i class="fab fa-twitter"></i></a>
+ <footer class="bg-gradient-to-b from-white to-gray-50 py-12">
+    <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <!-- Navigation Links -->
+            <div class="text-center md:text-left">
+                <h4 class="text-lg font-semibold text-gray-800 mb-4">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="../index.html" class="text-gray-600 hover:text-indigo-600 transition-colors">Home</a></li>
+                    <li><a href="../index.html#projects" class="text-gray-600 hover:text-indigo-600 transition-colors">Projects</a></li>
+                    <li><a href="../index.html#services" class="text-gray-600 hover:text-indigo-600 transition-colors">Services</a></li>
+                    <li><a href="../index.html#testimonials" class="text-gray-600 hover:text-indigo-600 transition-colors">Testimonials</a></li>
+                </ul>
+            </div>
+            <!-- Contact Info -->
+            <div class="text-center">
+                <h4 class="text-lg font-semibold text-gray-800 mb-4">Contact</h4>
+                <p class="text-gray-600 mb-2">Get in touch for your next project</p>
+                <button onclick="openContactFormPopup()" class="bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition-all duration-300 transform hover:scale-105">Contact Me</button>
+            </div>
+            <!-- Social Links -->
+            <div class="text-center md:text-right">
+                <h4 class="text-lg font-semibold text-gray-800 mb-4">Follow Me</h4>
+                <div class="flex justify-center md:justify-end space-x-4">
+                    <a href="#" class="text-gray-600 hover:text-indigo-600 transition-colors"><i class="fab fa-linkedin text-xl"></i></a>
+                    <a href="#" class="text-gray-600 hover:text-indigo-600 transition-colors"><i class="fab fa-github text-xl"></i></a>
+                    <a href="#" class="text-gray-600 hover:text-indigo-600 transition-colors"><i class="fab fa-twitter text-xl"></i></a>
+                    <a href="#" class="text-gray-600 hover:text-indigo-600 transition-colors"><i class="fab fa-instagram text-xl"></i></a>
+                </div>
             </div>
         </div>
-        <div class="space-y-4">
-            <h4 class="text-lg font-semibold text-gray-800">Quick Links</h4>
-            <ul class="space-y-2">
-                <li><a href="../index.html" class="text-gray-600 hover:text-indigo-600">Home</a></li>
-                <li><a href="../index.html#projects" class="text-gray-600 hover:text-indigo-600">Projects</a></li>
-                <li><a href="../index.html#services" class="text-gray-600 hover:text-indigo-600">Services</a></li>
-            </ul>
+        <div class="border-t border-gray-200 pt-8 text-center">
+            <p class="text-gray-600">&copy; 2024 Jasim Uddin. All rights reserved.</p>
         </div>
-    </div>
-    <div class="mt-8 pt-8 border-t border-gray-200 text-center">
-        <p class="text-gray-600">&copy; 2024 Jasim Uddin. All rights reserved.</p>
     </div>
 </footer>
              
