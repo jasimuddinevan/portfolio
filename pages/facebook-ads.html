@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Facebook Ads Services | Jasim Uddin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css" />
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="nav-container bg-white/50 backdrop-blur-sm shadow-md fixed w-full z-10 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="../index.html" class="text-xl font-bold text-indigo-700">Jasim Uddin</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="../index.html#home" class="nav-link text-gray-700 hover:text-indigo-700 font-medium">Home</a>
+                    <a href="../index.html#about" class="nav-link text-gray-700 hover:text-indigo-700 font-medium">About</a>
+                    <a href="../index.html#services" class="nav-link text-gray-700 hover:text-indigo-700 font-medium">Services</a>
+                    <a href="../index.html#projects" class="nav-link text-gray-700 hover:text-indigo-700 font-medium">Projects</a>
+                    <a href="../index.html#testimonials" class="nav-link text-gray-700 hover:text-indigo-700 font-medium">Testimonials</a>
+                    <a onclick="openContactFormPopup()" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition cursor-pointer">Contact Me</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-700">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="../index.html#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-700 hover:bg-gray-50">Home</a>
+                <a href="../index.html#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-700 hover:bg-gray-50">About</a>
+                <a href="../index.html#services" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-700 hover:bg-gray-50">Services</a>
+                <a href="../index.html#projects" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-700 hover:bg-gray-50">Projects</a>
+                <a href="../index.html#testimonials" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-700 hover:bg-gray-50">Testimonials</a>
+                <a onclick="openContactFormPopup()" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-700 hover:bg-gray-50 cursor-pointer">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-24 bg-gradient-to-b from-indigo-50 to-white overflow-hidden">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-4xl mx-auto">
+                <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6">Facebook Ads</h1>
+                <p class="text-xl md:text-2xl text-gray-600 mb-12">Let's grow your product sales with our data-driven marketing philosophy</p>
+                <button onclick="openContactFormPopup()" class="bg-indigo-600 text-white text-lg px-10 py-4 rounded-full hover:bg-indigo-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center mx-auto gap-2">
+                    Let's talk about how we do it
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="absolute top-0 left-0 w-full h-full pointer-events-none">
+            <div class="absolute top-1/4 left-0 w-64 h-64 bg-indigo-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+            <div class="absolute top-1/3 right-0 w-64 h-64 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+        </div>
+    </section>
+
+    <!-- Facebook Ads Real Method Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">Facebook Ads Real Method</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div class="bg-gray-50 rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Common Ad Problems</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="text-red-500 mr-2">✕</span>
+                            <span>High ad costs with low return on investment</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-red-500 mr-2">✕</span>
+                            <span>Poor targeting leading to wasted ad spend</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-red-500 mr-2">✕</span>
+                            <span>Inconsistent results and unreliable performance</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Our Solution</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <span>Data-driven targeting strategies</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <span>Advanced audience segmentation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <span>Continuous optimization for maximum ROI</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Growth Steps Section -->
+    <section class="py-20 bg-gradient-to-b from-gray-50 to-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-16">How We Will Grow Your Business to the Next Level</h2>
+            <div class="max-w-6xl mx-auto">
+                <div class="space-y-24">
+                    <div class="flex flex-col md:flex-row items-center gap-8 scroll-reveal">
+                        <div class="md:w-1/2">
+                            <div class="bg-white rounded-2xl shadow-xl p-8">
+                                <span class="text-4xl font-bold text-indigo-600">01</span>
+                                <h3 class="text-2xl font-semibold mt-4 mb-4">Research & Analysis</h3>
+                                <p class="text-gray-600">Deep dive into your market, competitors, and target audience to develop a winning strategy.</p>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2">
+                            <div class="bg-white rounded-2xl shadow-xl p-8">
+                                <span class="text-4xl font-bold text-indigo-600">02</span>
+                                <h3 class="text-2xl font-semibold mt-4 mb-4">Campaign Setup</h3>
+                                <p class="text-gray-600">Create highly targeted campaigns with compelling ad creatives and precise audience targeting.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row items-center gap-8 scroll-reveal">
+                        <div class="md:w-1/2">
+                            <div class="bg-white rounded-2xl shadow-xl p-8">
+                                <span class="text-4xl font-bold text-indigo-600">03</span>
+                                <h3 class="text-2xl font-semibold mt-4 mb-4">Optimization</h3>
+                                <p class="text-gray-600">Continuous monitoring and optimization of campaigns for maximum performance and ROI.</p>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2">
+                            <div class="bg-white rounded-2xl shadow-xl p-8">
+                                <span class="text-4xl font-bold text-indigo-600">04</span>
+                                <h3 class="text-2xl font-semibold mt-4 mb-4">Scale & Grow</h3>
+                                <p class="text-gray-600">Systematically scale successful campaigns while maintaining efficiency and profitability.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Previous Work Experience Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-8">Our Previous Work Experience</h2>
+            <div class="max-w-4xl mx-auto text-center">
+                <p class="text-lg text-gray-600 mb-12">We've helped numerous businesses achieve remarkable growth through strategic Facebook advertising. Our data-driven approach has consistently delivered outstanding results across various industries, from e-commerce to service-based businesses. Through careful audience targeting, compelling ad creatives, and continuous optimization, we've achieved significant improvements in ROI and customer acquisition costs for our clients.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="p-6 bg-gray-50 rounded-xl">
+                        <h3 class="text-4xl font-bold text-indigo-600 mb-2">300%</h3>
+                        <p class="text-gray-600">Average ROAS Increase</p>
+                    </div>
+                    <div class="p-6 bg-gray-50 rounded-xl">
+                        <h3 class="text-4xl font-bold text-indigo-600 mb-2">-40%</h3>
+                        <p class="text-gray-600">Cost Per Acquisition</p>
+                    </div>
+                    <div class="p-6 bg-gray-50 rounded-xl">
+                        <h3 class="text-4xl font-bold text-indigo-600 mb-2">5X</h3>
+                        <p class="text-gray-600">Revenue Growth</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Reviews Section -->
+    <section class="py-20 bg-gradient-to-b from-gray-50 to-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-16">What Clients Say About Us</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-center mb-4">
+                        <img src="https://via.placeholder.com/60x60" alt="Client" class="w-12 h-12 rounded-full">
+                        <div class="ml-4">
+                            <h4 class="font-semibold">Sarah Johnson</h4>
+                            <p class="text-gray-600">E-commerce Owner</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Their Facebook ad strategies transformed our business. We saw a 400% increase in ROAS within the first month!"</p>
+                    <div class="mt-4 flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-center mb-4">
+                        <img src="https://via.placeholder.com/60x60" alt="Client" class="w-12 h-12 rounded-full">
+                        <div class="ml-4">
+                            <h4 class="font-semibold">Michael Chen</h4>
+                            <p class="text-gray-600">SaaS Founder</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"The team's attention to detail and data-driven approach helped us reduce our CPA by 50% while scaling our ad spend."</p>
+                    <div class="mt-4 flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-center mb-4">
+                        <img src="https://via.placeholder.com/60x60" alt="Client" class="w-12 h-12 rounded-full">
+                        <div class="ml-4">
+                            <h4 class="font-semibold">Emma Davis</h4>
+                            <p class="text-gray-600">Marketing Director</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Their strategic approach to Facebook advertising has been instrumental in our company's growth. Highly recommended!"</p>
+                    <div class="mt-4 flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="py-20 bg-indigo-600">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-8">Let's Start Growing Yours Now</h2>
+            <p class="text-xl text-white/90 mb-12 max-w-3xl mx-auto">Ready to transform your business with powerful Facebook advertising? Join our success stories and experience unprecedented growth with our proven strategies.</p>
+            <button onclick="openContactFormPopup()" class="bg-white text-indigo-600 text-lg px-10 py-4 rounded-full hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl inline-flex items-center gap-2">
+                Start Your Growth Journey
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-gradient-to-b from-white to-gray-50 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <!-- Navigation Links -->
+                <div class="text-center md:text-left">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html" class="text-gray-600 hover:text-indigo-600 transition-colors">Home</a></li>
+                        <li><a href="../index.html#projects" class="text-gray-600 hover:text-indigo-600 transition-colors">Projects</a></li>
+                        <li><a href="../index.html#services" class="text-gray-600 hover:text-indigo-600 transition-colors">Services</a></li>
+                        <li><a href="../index.html#testimonials" class="text-gray-600 hover:text-indigo-600 transition-colors">Testimonials</a></li>
+                    </ul>
+                </div>
+                <!-- Contact Info -->
+                <div class="text-center">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-4">Contact</h4>
+                    <p class="text-gray-600 mb-2">Get in touch for your next project</p>
+                    <button onclick="openContactFormPopup()" class="bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition-all duration-300 transform hover:scale-105">Contact Me</button>
+                </div>
+                <!-- Social Links -->
+                <div class="text-center md:text-right">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-4">Follow Me</h4>
+                    <div class="flex justify-center md:justify-end space-x-4">
+                        <a href="#" class="text-gray-600 hover:text-indigo-600 transition-colors"><i class="fab fa-linkedin text-xl"></i></a>
+                        <a href="#" class="text-gray-600 hover:text-indigo-600 transition-colors"><i class="fab fa-github text-xl"></i></a>
+                        <a href="#" class="text-gray-600 hover:text-indigo-600 transition-colors"><i class="fab fa-twitter text-xl"></i></a>
+                        <a href="#" class="text-gray-600 hover:text-indigo-600 transition-colors"><i class="fab fa-instagram text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 pt-8 text-center">
+                <p class="text-gray-600">&copy; 2024 Jasim Uddin. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        .animate-blob {
+            animation: blob-bounce 7s infinite;
+        }
+        .animation-delay-2000 {
+            animation-delay: 2s;
+        }
+        @keyframes blob-bounce {
+            0% {
+                transform: translate(0px, 0px) scale(1);
+            }
+            33% {
+                transform: translate(30px, -50px) scale(1.1);
+            }
+            66% {
+                transform: translate(-20px, 20px) scale(0.9);
+            }
+            100% {
+                transform: translate(0px, 0px) scale(1);
+            }
+        }
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Scroll reveal animation
+        function revealOnScroll() {
+            var reveals = document.querySelectorAll('.scroll-reveal');
+            reveals.forEach(function(reveal) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveal.getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+    </script>
+</body>
+</html>
