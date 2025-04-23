@@ -75,58 +75,117 @@ const projectsData = [
   },
   {
     id: 4,
-    title: "Facebook Ad Campaign for Restaurant Chain",
+    title: "Professional Dental Clinic Website",
     client: "Taste of Asia",
-    date: "December 2023",
-    category: "Facebook Ads",
-    url: "https://tasteofasia-example.com",
+    date: "December 2024",
+    category: "WordPress Website",
+    url: "#",
     description:
-      "Ran a geo-targeted ad campaign for a restaurant chain, promoting seasonal offers with 320% ROI.",
+      "Designed a modern, user-friendly website for a dental clinic, focused on trust-building visuals, smooth navigation, and appointment booking — helping the client boost credibility, attract new patients, and enhance their online presence.",
     technologies: [
-      "Facebook Ads Manager",
-      "Audience Targeting",
-      "Ad Creative Design",
-      "Analytics",
-      "A/B Testing",
+      "Professional Website Design",
+      "Modern UI",
+      "Unique Design",
+      "Responsive Design",
+      "Fully Responsive",
     ],
     images: [
-      "https://placehold.co/600x400/5540fd/ffffff?text=Ad+Creative",
-      "https://placehold.co/600x400/5540fd/ffffff?text=Results",
-      "https://placehold.co/600x400/5540fd/ffffff?text=Demographics",
+      "https://i.postimg.cc/HWN6vZmv/image.png",
+      "https://i.postimg.cc/C5WGJQW3/image.png",
+      "https://i.postimg.cc/nLzky8c6/image.png",
+      "https://i.postimg.cc/HsvRjt8D/image.png",
+      "https://i.postimg.cc/hj3TVhLj/image.png",
     ],
   },
   {
     id: 5,
-    title: "Lead Generation Campaign",
+    title: "Elegant & Appetizing Restaurant Website Design ",
     client: "SaaSly",
-    date: "November 2023",
-    category: "Facebook Ads",
-    url: "https://saasly-example.com",
+    date: "November 2024",
+    category: "WordPress Website",
+    url: "#",
     description:
-      "Created a Facebook campaign that reduced cost-per-lead by 40% for a SaaS product while maintaining quality.",
-    technologies: ["Facebook Ads", "Lead Generation", "Conversion Tracking"],
+      "Crafted a visually enticing website for a restaurant, emphasizing rich imagery, smooth browsing, and easy reservation — helping the client increase table bookings, showcase their menu beautifully, and enhance their digital presence.",
+    technologies: ["WordPress", "Elementor", "CSS", "Responsive Design"],
     images: [
-      "https://placehold.co/600x400/5540fd/ffffff?text=Lead+Ad",
-      "https://placehold.co/600x400/5540fd/ffffff?text=Lead+Results",
-      "https://placehold.co/600x400/5540fd/ffffff?text=Conversion+Graph",
+      "https://i.postimg.cc/tCY4pgLC/image.png",
+      "https://i.postimg.cc/XqPqYDR1/image.png",
+      "https://i.postimg.cc/brnrdRqz/image.png",
+      "https://i.postimg.cc/d3RFzNqT/image.png",
+    ],
+  },
+  
+  {
+    id: 6,
+    title: "Stylish & Impactful Personal Website ",
+    client: "Urban Mart",
+    date: "August 2023",
+    category: "WordPress Website",
+    url: "#",
+    description:
+      "Developed a visually stunning personal website, showcasing your work, skills, and achievements — helping the client establish a professional online presence and attract potential clients.",
+    technologies: ["WordPress", "Custom Page builder", "Custom Design"],
+    images: [
+      "https://i.postimg.cc/C5WGJQW3/image.png",
+      "https://i.postimg.cc/SKYDmDsZ/image.png",
+      "https://placehold.co/600x400/5540fd/ffffff?text=Image+Not+Loaded",
+    ],
+  },
+  // Facebook Ads project Data content
+  {
+    id: 7,
+    title: "E-commerce Sales Campaign & Results",
+    client: "Urban Mart",
+    date: "May 2024",
+    category: "Facebook Ads",
+    url: "#",
+    description:
+      "Designed and managed a Facebook Ads campaigns for an e-commerce store that generated a 350% ROI and increased sales by 75%.",
+    technologies: ["Facebook Ads", "Pixel Installations", "Setup Advanced Campaign"],
+    images: [
+      "https://i.postimg.cc/50fQ9VV9/a8daa715-03f4-445b-b3ba-3d4af829faf3.webp",
+      "https://i.postimg.cc/8z1Fb5MN/image.png",
+      "https://i.postimg.cc/FFLLCBRR/image.png",
+      "https://i.postimg.cc/sD1D0BKJ/image.png",
+      "https://i.postimg.cc/DwZvZb1J/image.png",
     ],
   },
   {
-    id: 6,
-    title: "Local Business Ad Campaign",
-    client: "Urban Mart",
-    date: "August 2023",
+    id: 8,
+    title: "SLead Generation Campaign",
+    client: "LTX BD",
+    date: "August 24",
     category: "Facebook Ads",
-    url: "https://urbanmart-example.com",
+    url: "#",
     description:
-      "Managed Facebook ads for a local grocery chain that increased footfall by 60% in three locations.",
-    technologies: ["Facebook Ads", "Local Business Targeting", "Geotargeting"],
+      "Created a Facebook lead generation campaign for a SaaS company that decreased cost per lead by 40% while maintaining lead quality, resulting in 88% conversion rate.",
+    technologies: ["WordPress", "Custom Page builder", "Custom Design"],
     images: [
-      "https://placehold.co/600x400/5540fd/ffffff?text=UrbanMart+Ad",
-      "https://placehold.co/600x400/5540fd/ffffff?text=Before+After",
-      "https://placehold.co/600x400/5540fd/ffffff?text=In-Store+Sales",
+      "https://i.postimg.cc/hGsTdjMQ/67f6ea0e-2255-45de-8cc9-1541d1a1560a.jpg",
+      "https://i.postimg.cc/Bb5bKGjb/image.png",
+      "https://i.postimg.cc/c4m610q5/image.png",
     ],
   },
+  {
+    id: 9,
+    title: "Ads Funnel creation & Advanced Targeting",
+    client: "",
+    date: "August 2023",
+    category: "Facebook Ads",
+    url: "#",
+    description:
+      "Create High converting ad funnel to create a liftime loyal Customer-base for the business. And Genarte sales consistently targeting and re-targeting ads. best for new brand or to createa a stronger customer base.",
+    technologies: ["Facebook Ads", "Sales Funnel Design", "Marketing Plan Creation"],
+    images: [
+      "https://i.postimg.cc/0Q81y8yN/image.png",
+      
+      "https://placehold.co/600x400/5540fd/ffffff?text=Image+not+available",
+    ],
+  },
+
+
+
+  
 ];
 
 // Variables for project popup
