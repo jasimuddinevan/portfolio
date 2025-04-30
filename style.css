@@ -208,9 +208,10 @@ body {
   transition: transform 0.5s ease;
 }
 
+/*  Project popup slides style and size  */
 .slide {
   min-width: 100%;
-  height: 400px;
+  height: 600px;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
