@@ -48,22 +48,104 @@
 </head>
 <body class="bg-gray-50">
     <!-- Navigation -->
-    <nav class="nav-container bg-white/50 backdrop-blur-sm shadow-md fixed w-full z-10 transition-all duration-300" id="navbar">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <h1 class="text-xl font-bold text-indigo-700"><a href="/portfolio/">Jasim Uddin</a></h1>
-                </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="../index.html#home" class="nav-link text-gray-700 hover:text-indigo-700 font-medium">Home</a>
-                    <a href="../index.html#about" class="nav-link text-gray-700 hover:text-indigo-700 font-medium">About</a>
-                    <a href="../index.html#services" class="nav-link text-gray-700 hover:text-indigo-700 font-medium">Services</a>
-                    <a href="../index.html#projects" class="nav-link text-gray-700 hover:text-indigo-700 font-medium">Projects</a>
-                    <a href="../index.html#testimonials" class="nav-link text-gray-700 hover:text-indigo-700 font-medium">Testimonials</a>
-                    <a onclick="openContactFormPopup()" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition">Contact Me</a>
-                </div>
-            </div>
+    <nav
+      class="nav-container bg-white/50 backdrop-blur-sm shadow-md fixed w-full z-10 transition-all duration-300"
+      id="navbar"
+    >
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+          <div class="flex items-center">
+            <h1 class="text-xl font-bold text-indigo-700"> <a href="/portfolio/">Jasim Uddin</a></h1>
+          </div>
+          <div class="hidden md:flex items-center space-x-8">
+            <a
+              href="#home"
+              class="nav-link text-gray-700 hover:text-indigo-700 font-medium"
+              >Home</a
+            >
+            <a
+              href="#about"
+              class="nav-link text-gray-700 hover:text-indigo-700 font-medium"
+              >About</a
+            >
+            <a
+              href="#services"
+              class="nav-link text-gray-700 hover:text-indigo-700 font-medium"
+              >Services</a
+            >
+            <a
+              href="#projects"
+              class="nav-link text-gray-700 hover:text-indigo-700 font-medium"
+              >Projects</a
+            >
+            <a
+              href="#testimonials"
+              class="nav-link text-gray-700 hover:text-indigo-700 font-medium"
+              >Reviews</a
+            >
+            <a
+              onclick=" openContactFormPopup()"
+              class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition"
+              >Contact Me</a
+            >
+          </div>
+          <div class="md:hidden flex items-center">
+            <button id="mobile-menu-button" class="text-gray-700">
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16m-7 6h7"
+                ></path>
+              </svg>
+            </button>
+          </div>
         </div>
+      </div>
+      <!-- Mobile menu -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-white border-t border-gray-200"
+      >
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <a
+            href="#home"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-700 hover:bg-gray-50"
+            >Home</a
+          >
+          <a
+            href="#about"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-700 hover:bg-gray-50"
+            >About</a
+          >
+          <a
+            href="#services"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-700 hover:bg-gray-50"
+            >Services</a
+          >
+          <a
+            href="#projects"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-700 hover:bg-gray-50"
+            >Projects</a
+          >
+          <a
+            href="#testimonials"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-700 hover:bg-gray-50"
+            >Reviews</a
+          >
+          <a
+            onclick="openContactFormPopup()"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-700 hover:bg-gray-50"
+            >Contact</a
+          >
+        </div>
+      </div>
     </nav>
 
     <!-- Packages Section -->
