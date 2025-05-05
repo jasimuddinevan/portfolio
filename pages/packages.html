@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Service Packages | Jasim Uddin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css" />
+    <style>
+        .package-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .checklist-item {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s ease forwards;
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+        }
+        .intro-text {
+            animation: fadeIn 1s ease-in;
+            line-height: 1.8;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(to right, #1d1c20, #2f2f3a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 500;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="nav-container bg-white/50 backdrop-blur-sm shadow-md fixed w-full z-10 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <h1 class="text-xl font-bold text-indigo-700"><a href="/portfolio/">Jasim Uddin</a></h1>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="../index.html#home" class="nav-link text-gray-700 hover:text-indigo-700 font-medium">Home</a>
+                    <a href="../index.html#about" class="nav-link text-gray-700 hover:text-indigo-700 font-medium">About</a>
+                    <a href="../index.html#services" class="nav-link text-gray-700 hover:text-indigo-700 font-medium">Services</a>
+                    <a href="../index.html#projects" class="nav-link text-gray-700 hover:text-indigo-700 font-medium">Projects</a>
+                    <a href="../index.html#testimonials" class="nav-link text-gray-700 hover:text-indigo-700 font-medium">Testimonials</a>
+                    <a onclick="openContactFormPopup()" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition">Contact Me</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Packages Section -->
+    <section class="pt-32 pb-20 px-4">
+        <div class="container mx-auto">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">Service Packages</h2>
+                <p class="text-lg leading-relaxed intro-text">
+                    Transform your business vision into digital success with our comprehensive service packages. 
+                    Our expert team combines cutting-edge technology with strategic insights to deliver solutions that drive growth, 
+                    enhance efficiency, and maximize your ROI. Whether you're launching a new venture or scaling your existing business, 
+                    we provide the tools and expertise you need to thrive in today's competitive landscape. 
+                    Our team is dedicated to delivering exceptional results, ensuring your business stays ahead of the competition.
+                    
+                
+                    Join hundreds of satisfied clients who have achieved remarkable results through our tailored services and dedicated support.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Web Development Package -->
+                <div class="package-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="gradient-bg p-6 text-white">
+                        <h3 class="text-2xl font-bold mb-2">Web Development Service</h3>
+                        <div class="text-3xl font-bold mb-4">$499</div>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-3">
+                            <li class="checklist-item flex items-center" style="animation-delay: 0.1s">
+                                <svg class="h-5 w-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                WordPress Website
+                            </li>
+                            <li class="checklist-item flex items-center" style="animation-delay: 0.1s">
+                                <svg class="h-5 w-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Custom Solution Development
+                            </li>
+                            <li class="checklist-item flex items-center" style="animation-delay: 0.1s">
+                                <svg class="h-5 w-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Market-Ready Solution
+                            </li>
+                            <li class="checklist-item flex items-center" style="animation-delay: 0.2s">
+                                <svg class="h-5 w-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Responsive Development
+                            </li>
+                            <li class="checklist-item flex items-center" style="animation-delay: 0.3s">
+                                <svg class="h-5 w-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                SEO Optimization
+                            </li>
+                            <li class="checklist-item flex items-center" style="animation-delay: 0.4s">
+                                <svg class="h-5 w-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Performance Optimization
+                            </li>
+                            <li class="checklist-item flex items-center" style="animation-delay: 0.5s">
+                                <svg class="h-5 w-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Modern UI/UX Design
+                            </li>
+                            <li class="checklist-item flex items-center" style="animation-delay: 0.6s">
+                                <svg class="h-5 w-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                6Month Maintenance Support
+                            </li>
+                        </ul>
+                        <button onclick="openContactFormPopup()" class="w-full mt-8 bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-700 transition">Get Started</button>
+                    </div>
+                </div>
+
+                <!-- Facebook & Social Ads Package -->
+                <div class="package-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="gradient-bg p-6 text-white">
+                        <h3 class="text-2xl font-bold mb-2">Facebook & Social Ads</h3>
+                        <div class="text-3xl font-bold mb-4">$299-m</div>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-3">
+                            <li class="checklist-item flex items-center" style="animation-delay: 0.1s">
+                                <svg class="h-5 w-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Business Analysis
+                            </li>
+                            <li class="checklist-item flex items-center" style="animation-delay: 0.2s">
+                                <svg class="h-5 w-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Funnel Design
+                            </li>
+                            <li class="checklist-item flex items-center" style="animation-delay: 0.3s">
+                                <svg class="h-5 w-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Ad Creation & Setup
+                            </li>
+                            <li class="checklist-item flex items-center" style="animation-delay: 0.4s">
+                                <svg class="h-5 w-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Performance Monitoring
+                            </li>
+                            <li class="checklist-item flex items-center" style="animation-delay: 0.5s">
+                                <svg class="h-5 w-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Retargeting Strategy
+                            </li>
+                            <li class="checklist-item flex items-center" style="animation-delay: 0.6s">
+                                <svg class="h-5 w-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Data Analysis
+                            </li>
+                            <li class="checklist-item flex items-center" style="animation-delay: 0.6s">
+                                <svg class="h-5 w-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Ad Scalling & Optimization
+                            </li>
+                            <li class="checklist-item flex items-center" style="animation-delay: 0.6s">
+                                <svg class="h-5 w-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Weekly Reports & Updates
+                            </li>
+                        </ul>
+                        <button onclick="openContactFormPopup()" class="w-full mt-8 bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-700 transition">Get Started</button>
+                    </div>
+                </div>
+
+                <!-- Website Management Package -->
+                <div class="package-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="gradient-bg p-6 text-white">
+                        <h3 class="text-2xl font-bold mb-2">Website Management & Security</h3>
+                        <div class="text-3xl font-bold mb-4">$299-m</div>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-3">
+                            <li class="checklist-item flex items-center" style="animation-delay: 0.1s">
+                                <svg class="h-5 w-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                24/7 Security Monitoring
+                            </li>
+                            <li class="checklist-item flex items-center" style="animation-delay: 0.2s">
+                                <svg class="h-5 w-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Regular Backups
+                            </li>
+                            <li class="checklist-item flex items-center" style="animation-delay: 0.3s">
+                                <svg class="h-5 w-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Performance Optimization
+                            </li>
+                            <li class="checklist-item flex items-center" style="animation-delay: 0.4s">
+                                <svg class="h-5 w-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Content Updates
+                            </li>
+                            <li class="checklist-item flex items-center" style="animation-delay: 0.5s">
+                                <svg class="h-5 w-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                SSL Certificate Management
+                            </li>
+                            <li class="checklist-item flex items-center" style="animation-delay: 0.6s">
+                                <svg class="h-5 w-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Plugin Updates & Maintenance
+                            </li>
+                            <li class="checklist-item flex items-center" style="animation-delay: 0.7s">
+                                <svg class="h-5 w-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                E-commerce Support
+                            </li>
+                            <li class="checklist-item flex items-center" style="animation-delay: 0.8s">
+                                <svg class="h-5 w-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Technical Support
+                            </li>
+                        </ul>
+                        <button onclick="openContactFormPopup()" class="w-full mt-8 bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-700 transition">Get Started</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- Recommended Companies Section -->
+     <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">Recommended Companies</h2>
+            <div class="w-24 h-1 bg-indigo-600 mx-auto mb-8"></div>
+            <p class="text-gray-600 max-w-3xl mx-auto text-lg">
+              Explore these trusted platforms that I recommend for your business needs.
+            </p>
+          </div>
+  
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Hostinger Card -->
+            <a href="https://hostinger.com?REFERRALCODE=1JASIM92" target="_blank" class="recommended-company-card bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+              <div class="p-8 text-center">
+                <div class="w-24 h-24 mx-auto mb-6 flex items-center justify-center">
+                 <!-- <i class="fas fa-server text-5xl text-indigo-600"></i> -->
+                  <img src="https://i.postimg.cc/217XLf23/Hostinger-1329545820965555584-128px.png" alt="" srcset="">
+                </div>
+                <h3 class="text-2xl font-semibold text-gray-800 mb-4">Hostinger</h3>
+                <p class="text-gray-600"> <span style="color: blueviolet;" >90% OFF</span> <br> Premium web hosting services with excellent performance and reliability.</p>
+              </div>
+            </a>
+  
+            <!-- Upwork Card -->
+            <a href="https://www.upwork.com/freelancers/jasimuddin29" target="_blank" class="recommended-company-card bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+              <div class="p-8 text-center">
+                <div class="w-24 h-24 mx-auto mb-6 flex items-center justify-center">
+                  <!-- <i class="fas fa-laptop-code text-5xl text-indigo-600"></i> -->
+                  <img src="https://i.postimg.cc/zfqm5dd3/upwork-1324440249303382741-128px.png" alt="" srcset="">
+                </div>
+                <h3 class="text-2xl font-semibold text-gray-800 mb-4">Upwork</h3>
+                <p class="text-gray-600">Connect with top freelancers and professionals for your projects.</p>
+              </div>
+            </a>
+  
+            <!-- ThemeForest Card -->
+            <a href="https://themeforest.net" target="_blank" class="recommended-company-card bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+              <div class="p-8 text-center">
+                <div class="w-24 h-24 mx-auto mb-6 flex items-center justify-center">
+                  <i class="fas fa-paint-brush text-5xl text-indigo-600"></i>
+                </div>
+                <h3 class="text-2xl font-semibold text-gray-800 mb-4">ThemeForest</h3>
+                <p class="text-gray-600">Premium WordPress themes and website templates marketplace.</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+  
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">About Me</h3>
+                    <p class="text-gray-400">Professional WordPress Developer & Facebook Ads Specialist helping businesses grow online.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html#services" class="text-gray-400 hover:text-white transition">Services</a></li>
+                        <li><a href="../index.html#projects" class="text-gray-400 hover:text-white transition">Projects</a></li>
+                        <li><a href="../index.html#testimonials" class="text-gray-400 hover:text-white transition">Testimonials</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400">Email: contact@example.com</li>
+                        <li class="text-gray-400">Phone: +1 234 567 890</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Jasim Uddin. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../port-main.js"></script>
+</body>
+</html>
