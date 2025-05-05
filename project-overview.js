@@ -23,6 +23,7 @@ const projectsData = [
       "https://i.postimg.cc/brCgR4d9/image.png/ffffff?text=Product+Category+Page",
       "https://i.postimg.cc/C5dwNFDK/image.png/ffffff?text=Mobile+View",
     ],
+    
   },
   {
     id: 2,
@@ -175,6 +176,23 @@ const projectsData = [
     url: "#",
     description:
       "Create High converting ad funnel to create a liftime loyal Customer-base for the business. And Genarte sales consistently targeting and re-targeting ads. best for new brand or to createa a stronger customer base.",
+    technologies: ["Facebook Ads", "Sales Funnel Design", "Marketing Plan Creation"],
+    images: [
+      "https://i.postimg.cc/0Q81y8yN/image.png",
+      
+      "https://placehold.co/600x400/5540fd/ffffff?text=Image+not+available",
+    ],
+  },
+
+  {
+    id: 10,
+    title: "Ads Funnel creation & Advanced Targeting",
+    client: "",
+    date: "August 2023",
+    category: "Facebook Ads",
+    url: "#",
+    description:
+      "Create High converting ad funnel to create a liftime loyal Customer-base for the business. And Genarte sales consistently targeting and re-targeting ads. best for new brand or to createa a stronger customer base.  ",
     technologies: ["Facebook Ads", "Sales Funnel Design", "Marketing Plan Creation"],
     images: [
       "https://i.postimg.cc/0Q81y8yN/image.png",

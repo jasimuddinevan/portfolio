@@ -94,6 +94,27 @@ body {
 .testimonial-card:hover {
   transform: translateY(-5px);
 }
+
+.recommended-company-card {
+  position: relative;
+  isolation: isolate;
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.6));
+  backdrop-filter: blur(10px);
+}
+
+.recommended-company-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.1) 0%, rgba(124, 58, 237, 0.1) 100%);
+  z-index: -1;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.recommended-company-card:hover::before {
+  opacity: 1;
+}
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
@@ -415,3 +436,5 @@ body {
   position: relative;
   z-index: 1;
 }
+
+
